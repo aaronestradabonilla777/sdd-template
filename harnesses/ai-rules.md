@@ -39,6 +39,12 @@ refactor: cambio sin nueva funcionalidad ni fix
 Mensaje en infinitivo, minúsculas, sin punto final.
 Ejemplo: `feat: add user authentication endpoint`
 
+## Reglas de PR
+
+- PRs de más de 300 líneas cambiadas deben dividirse en partes más pequeñas
+- Cada PR referencia la spec que implementa
+- Sin descripción = no se aprueba
+
 ## Lo que nunca se hace
 
 - Saltar la fase SPEC

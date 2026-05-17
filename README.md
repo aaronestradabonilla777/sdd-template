@@ -6,6 +6,8 @@ Template para proyectos con **Spec-Driven Development** usando Claude Code + Ope
 
 Spec-Driven Development es un flujo donde **ningún código existe sin una spec previa**. Antes de escribir una línea, defines qué se construye, por qué, y cuáles son los criterios para considerarlo terminado.
 
+La spec es la fuente de verdad — no el código. Esto significa que puedes llevar la misma spec a Claude, Cursor, Gemini o cualquier otro agente y reconstruir el proyecto desde la intención. El código es una consecuencia de la spec, no al revés.
+
 Esto evita el problema más común al trabajar con IA: que el modelo empiece a implementar antes de entender el problema, genere código fuera de scope, o invente features que nadie pidió.
 
 ## ¿Por qué Ollama?
@@ -31,10 +33,11 @@ No se salta ninguna fase. Sin spec, no hay código.
 
 1. Usa este repo como template en GitHub
 2. Clona tu nuevo repo
-3. Edita `Engram.md` con tu stack, puertos y decisiones técnicas
-4. Edita `CLAUDE.md` con el contexto del proyecto para Claude
-5. Crea tu primera spec en `specs/` copiando `specs/_template.md`
-6. Abre Claude Code para diseñar, OpenCode para implementar
+3. Edita `Engram.md` con tu stack, puertos y decisiones iniciales
+4. Edita `CLAUDE.md` con el contexto del proyecto
+5. Si tu stack es soportado, instala skills automáticas: `npx autoskills`
+6. Crea tu primera spec en `specs/` copiando `specs/_template.md`
+7. Claude diseña → OpenCode implementa → Claude verifica
 
 ## Archivos del template
 
@@ -55,7 +58,8 @@ Reglas de proceso que Claude y OpenCode deben seguir. Son el "sistema operativo"
 | `phase.md` | El flujo SPEC → DISEÑO → IMPLEMENTACIÓN → VERIFICACIÓN |
 | `isolation.md` | Qué hace Claude vs qué hace OpenCode |
 | `structure.md` | Estructura de carpetas: Feature Sliced Design + Clean Architecture |
-| `ai-rules.md` | Reglas de comportamiento: no over-engineer, convención de commits, scope |
+| `ai-rules.md` | Reglas de comportamiento: no over-engineer, convención de commits, límite de PR |
+| `state.md` | Estado de sesión — dónde se quedó el proyecto al retomar |
 | `contract.md` | Definition of Done — cuándo un feature está realmente terminado |
 
 ## Estructura de código
