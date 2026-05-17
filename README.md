@@ -20,6 +20,7 @@ SPEC (Claude) → DISEÑO (Claude) → IMPLEMENTACIÓN (OpenCode) → VERIFICACI
 harnesses/
 ├── phase.md       ← flujo de fases obligatorio
 ├── isolation.md   ← qué hace Claude vs OpenCode
+├── structure.md   ← Feature Sliced Design + Clean Architecture
 └── contract.md    ← Definition of Done
 
 specs/
