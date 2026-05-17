@@ -40,21 +40,20 @@ Engram.md          ← stack, puertos, decisiones técnicas
 
 ## Estructura de código (FSD)
 
-El template sigue **Feature Sliced Design** en frontend y **Clean Architecture por módulos** en backend. Ver `harnesses/structure.md` para la guía completa.
+El template sigue **Feature Sliced Design** en frontend y **Clean Architecture por módulos** en backend. Agnóstico al stack — adapta las extensiones a tu lenguaje. Ver `harnesses/structure.md` para la guía completa.
 
 ```
 # Frontend
 src/features/[nombre]/
-  [Nombre].tsx
+  [Nombre].{tsx,vue,svelte}
   [Nombre].viewModel.ts
   [Nombre].types.ts
 
-# Backend (Rust / Axum)
+# Backend
 src/[nombre]/
-  handler.rs
-  service.rs
-  model.rs
-  mod.rs
+  handler.{rs,ts,py}
+  service.{rs,ts,py}
+  model.{rs,ts,py}
 ```
 
 ## Herramientas requeridas

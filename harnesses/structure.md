@@ -2,54 +2,55 @@
 
 Todo proyecto que use este template sigue **Feature Sliced Design** en el frontend y **Clean Architecture por módulos** en el backend.
 
-## Frontend (React + TypeScript)
+Adapta los nombres de archivos al lenguaje del proyecto. Los principios son los mismos.
+
+## Frontend
 
 ```
 src/
   features/
     [nombre-feature]/
-      [Nombre].tsx              ← View (componente principal)
-      [Nombre].viewModel.ts     ← ViewModel (hook con lógica y estado)
-      [Nombre].types.ts         ← tipos e interfaces del feature
-      [Nombre].permissions.ts   ← guards/permisos (si aplica)
+      [Nombre].{tsx,vue,svelte}   ← View (componente principal)
+      [Nombre].viewModel.{ts,js}  ← ViewModel (lógica y estado)
+      [Nombre].types.ts           ← tipos e interfaces
+      [Nombre].permissions.ts     ← guards/permisos (si aplica)
   shared/
-    components/                 ← UI reutilizable entre features
-    hooks/                      ← hooks genéricos
-    types/                      ← tipos globales
-  pages/                        ← ensamblado de features por ruta
-  App.tsx
+    components/                   ← UI reutilizable entre features
+    hooks/                        ← lógica genérica reutilizable
+    types/                        ← tipos globales
+  pages/                          ← ensamblado de features por ruta
+  App.{tsx,vue,svelte}
 ```
 
 ### Reglas
-- Cada feature es **autocontenido** — no importa desde otro feature directamente
-- Si dos features necesitan algo en común → muévelo a `shared/`
-- `viewModel` = hook de React, nunca lógica en el componente
+- Cada feature es **autocontenido** — no importa directamente desde otro feature
+- Si dos features comparten algo → muévelo a `shared/`
+- `viewModel` concentra toda la lógica — el componente solo renderiza
 
-## Backend (Rust / Axum)
+## Backend
 
 ```
 src/
   [nombre-modulo]/
-    handler.rs    ← rutas HTTP (entrada/salida)
-    service.rs    ← lógica de negocio
-    model.rs      ← tipos y structs
-    repo.rs       ← queries a la DB (si el módulo es grande)
-    mod.rs        ← re-exports
-  main.rs         ← router, DB connection, middlewares
+    handler.{rs,ts,py}   ← rutas HTTP (entrada/salida)
+    service.{rs,ts,py}   ← lógica de negocio
+    model.{rs,ts,py}     ← tipos y structs
+    repo.{rs,ts,py}      ← queries a la DB (si el módulo es grande)
+  main.{rs,ts,py}        ← router, DB connection, middlewares
 ```
 
 ### Reglas
-- `handler.rs` solo serializa/deserializa — sin lógica de negocio
-- `service.rs` no conoce HTTP — solo recibe datos, devuelve resultados
-- `model.rs` define los tipos — sin lógica
-- Si el módulo es simple, `service.rs` y `repo.rs` pueden omitirse
+- `handler` solo serializa/deserializa — sin lógica de negocio
+- `service` no conoce HTTP — recibe datos, devuelve resultados
+- `model` define tipos — sin lógica
+- Si el módulo es simple, `service` y `repo` pueden omitirse
 
 ## Naming
 
 | Elemento | Convención |
 |----------|-----------|
 | Feature folder | `kebab-case` |
-| Componente | `PascalCase.tsx` |
+| Componente | `PascalCase` |
 | ViewModel | `camelCase.viewModel.ts` |
 | Tipos | `PascalCase.types.ts` |
-| Módulo Rust | `snake_case/` |
+| Módulo backend | `snake_case` o `kebab-case` según el lenguaje |
