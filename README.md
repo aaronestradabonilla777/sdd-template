@@ -45,7 +45,10 @@ No se salta ninguna fase. Sin spec, no hay código.
 Contexto que Claude lee al inicio de cada sesión: nombre del proyecto, stack, reglas específicas, comandos clave. Es la fuente de verdad para Claude sobre cómo trabajar en este proyecto.
 
 ### `Engram.md`
-Decisiones técnicas, stack, puertos, y arquitectura. Referencia rápida para cualquier dev (o IA) que entre al proyecto.
+Memoria viva del proyecto. Claude la lee al inicio de cada sesión y la actualiza con decisiones tomadas, convenciones y contexto descubierto durante el desarrollo.
+
+### `docs/`
+Architecture Decision Records (ADRs) — decisiones técnicas importantes documentadas con su contexto y trade-offs. Usa `docs/ADR_template.md` como base.
 
 ### `specs/`
 Una spec por feature. Cada spec define qué se construye, criterios de aceptación, edge cases, esquema de datos y endpoints antes de tocar el código.
@@ -60,6 +63,7 @@ Reglas de proceso que Claude y OpenCode deben seguir. Son el "sistema operativo"
 | `structure.md` | Estructura de carpetas: Feature Sliced Design + Clean Architecture |
 | `ai-rules.md` | Reglas de comportamiento: no over-engineer, convención de commits, límite de PR |
 | `state.md` | Estado de sesión — dónde se quedó el proyecto al retomar |
+| `review.md` | Checklist de PR: tamaño, criterios, descripción |
 | `contract.md` | Definition of Done — cuándo un feature está realmente terminado |
 
 ## Estructura de código
