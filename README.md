@@ -85,3 +85,8 @@ src/[nombre]/
 - [Claude Code](https://claude.ai/code) — diseño, arquitectura, revisión
 - [OpenCode](https://opencode.ai) — implementación con modelos locales
 - [Ollama](https://ollama.ai) — runtime de modelos local (sin costo, sin cloud)
+
+## Herramientas opcionales recomendadas
+
+- [autoskills](https://github.com/midudev/autoskills) — detecta tu stack e instala skills de IA curadas automáticamente (`npx autoskills`). Soporta React, Next.js, Vue, TypeScript, Supabase, Tailwind y más.
+- [caveman](https://github.com/JuliusBrussee/caveman) — reduce ~75% los tokens de output de Claude manteniendo precisión técnica (`/caveman` en Claude Code).
