@@ -1,17 +1,16 @@
 # SDD Template
 
-Template para proyectos con **Spec-Driven Development** + Claude Code + OpenCode (Ollama local).
+Template para proyectos con **Spec-Driven Development** usando Claude Code + OpenCode + Ollama local.
 
-Cada feature nace como spec, se diseña antes de tocarse el código, y se implementa con IA local sin suscripciones.
+## ¿Qué es SDD?
 
-## Inicio rápido
+Spec-Driven Development es un flujo donde **ningún código existe sin una spec previa**. Antes de escribir una línea, defines qué se construye, por qué, y cuáles son los criterios para considerarlo terminado.
 
-1. Usa este repo como template en GitHub
-2. Clona tu nuevo repo
-3. Edita `Engram.md` con tu stack y puertos
-4. Edita `CLAUDE.md` con el contexto de tu proyecto
-5. Crea tu primera spec en `specs/` usando `specs/_template.md`
-6. Claude diseña → OpenCode implementa → Claude verifica
+Esto evita el problema más común al trabajar con IA: que el modelo empiece a implementar antes de entender el problema, genere código fuera de scope, o invente features que nadie pidió.
+
+## ¿Por qué Ollama?
+
+OpenCode usa modelos locales vía Ollama — sin suscripciones, sin datos en la nube, sin costos por token de implementación. Claude Code se reserva para las decisiones que requieren razonamiento más profundo: diseño, arquitectura y revisión.
 
 ## Flujo de trabajo
 
@@ -21,43 +20,64 @@ SPEC (Claude) → DISEÑO (Claude) → IMPLEMENTACIÓN (OpenCode) → VERIFICACI
 
 No se salta ninguna fase. Sin spec, no hay código.
 
-## Estructura del template
+| Fase | Quién | Output |
+|------|-------|--------|
+| SPEC | Claude | Archivo en `specs/` |
+| DISEÑO | Claude | Esquema de datos, endpoints, componentes |
+| IMPLEMENTACIÓN | OpenCode | Código en `src/` |
+| VERIFICACIÓN | Claude + humano | PR aprobado |
+
+## Inicio rápido
+
+1. Usa este repo como template en GitHub
+2. Clona tu nuevo repo
+3. Edita `Engram.md` con tu stack, puertos y decisiones técnicas
+4. Edita `CLAUDE.md` con el contexto del proyecto para Claude
+5. Crea tu primera spec en `specs/` copiando `specs/_template.md`
+6. Abre Claude Code para diseñar, OpenCode para implementar
+
+## Archivos del template
+
+### `CLAUDE.md`
+Contexto que Claude lee al inicio de cada sesión: nombre del proyecto, stack, reglas específicas, comandos clave. Es la fuente de verdad para Claude sobre cómo trabajar en este proyecto.
+
+### `Engram.md`
+Decisiones técnicas, stack, puertos, y arquitectura. Referencia rápida para cualquier dev (o IA) que entre al proyecto.
+
+### `specs/`
+Una spec por feature. Cada spec define qué se construye, criterios de aceptación, edge cases, esquema de datos y endpoints antes de tocar el código.
+
+### `harnesses/`
+Reglas de proceso que Claude y OpenCode deben seguir. Son el "sistema operativo" del flujo de trabajo.
+
+| Harness | Qué define |
+|---------|-----------|
+| `phase.md` | El flujo SPEC → DISEÑO → IMPLEMENTACIÓN → VERIFICACIÓN |
+| `isolation.md` | Qué hace Claude vs qué hace OpenCode |
+| `structure.md` | Estructura de carpetas: Feature Sliced Design + Clean Architecture |
+| `ai-rules.md` | Reglas de comportamiento: no over-engineer, convención de commits, scope |
+| `contract.md` | Definition of Done — cuándo un feature está realmente terminado |
+
+## Estructura de código
+
+El template sigue **Feature Sliced Design** en frontend y **Clean Architecture por módulos** en backend. Es agnóstico al stack — adapta las extensiones a tu lenguaje. Ver `harnesses/structure.md` para la guía completa.
 
 ```
-harnesses/
-├── phase.md       ← flujo de fases obligatorio
-├── isolation.md   ← qué hace Claude vs OpenCode
-├── structure.md   ← Feature Sliced Design + Clean Architecture
-├── ai-rules.md    ← reglas de comportamiento para Claude y OpenCode
-└── contract.md    ← Definition of Done
-
-specs/
-└── _template.md   ← plantilla para cada feature
-
-CLAUDE.md          ← contexto del proyecto para Claude
-Engram.md          ← stack, puertos, decisiones técnicas
-```
-
-## Estructura de código (FSD)
-
-El template sigue **Feature Sliced Design** en frontend y **Clean Architecture por módulos** en backend. Agnóstico al stack — adapta las extensiones a tu lenguaje. Ver `harnesses/structure.md` para la guía completa.
-
-```
-# Frontend
+# Frontend (React / Vue / Svelte)
 src/features/[nombre]/
-  [Nombre].{tsx,vue,svelte}
-  [Nombre].viewModel.ts
-  [Nombre].types.ts
+  [Nombre].{tsx,vue,svelte}   ← vista
+  [Nombre].viewModel.ts       ← lógica y estado
+  [Nombre].types.ts           ← tipos e interfaces
 
-# Backend
+# Backend (Rust / Node / Python / Go)
 src/[nombre]/
-  handler.{rs,ts,py}
-  service.{rs,ts,py}
-  model.{rs,ts,py}
+  handler.{rs,ts,py}         ← rutas HTTP
+  service.{rs,ts,py}         ← lógica de negocio
+  model.{rs,ts,py}           ← tipos y structs
 ```
 
 ## Herramientas requeridas
 
 - [Claude Code](https://claude.ai/code) — diseño, arquitectura, revisión
-- [OpenCode](https://opencode.ai) — implementación con Ollama local
-- [Ollama](https://ollama.ai) — IA local (sin suscripciones)
+- [OpenCode](https://opencode.ai) — implementación con modelos locales
+- [Ollama](https://ollama.ai) — runtime de modelos local (sin costo, sin cloud)
