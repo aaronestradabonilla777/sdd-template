@@ -28,6 +28,7 @@ harnesses/
 ├── phase.md       ← flujo de fases obligatorio
 ├── isolation.md   ← qué hace Claude vs OpenCode
 ├── structure.md   ← Feature Sliced Design + Clean Architecture
+├── ai-rules.md    ← reglas de comportamiento para Claude y OpenCode
 └── contract.md    ← Definition of Done
 
 specs/
