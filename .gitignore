@@ -1,0 +1,24 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Rust
+target/
+
+# Node
+node_modules/
+dist/
+.pnpm-store/
+
+# Logs
+*.log
