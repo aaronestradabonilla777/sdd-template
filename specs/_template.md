@@ -7,12 +7,14 @@ Descripción en lenguaje simple de qué hace este feature.
 Problema que resuelve o valor que aporta al usuario.
 
 ## Ubicación en el proyecto
-- **Feature slice:** `src/features/[nombre]/`
-- **Archivos esperados:**
-  - `[Nombre].tsx` — vista
-  - `[Nombre].viewModel.ts` — lógica / hook
+- **Frontend:** `src/features/[nombre]/` (si aplica)
+  - `[Nombre].{tsx,vue,svelte}` — vista
+  - `[Nombre].viewModel.{ts,js}` — lógica y estado
   - `[Nombre].types.ts` — tipos e interfaces
-- **Backend:** `src/[nombre]/handler.rs`, `model.rs`, `service.rs` (si aplica)
+- **Backend:** `src/[nombre]/` (si aplica)
+  - `handler.{rs,ts,py,go}` — rutas HTTP
+  - `service.{rs,ts,py,go}` — lógica de negocio
+  - `model.{rs,ts,py,go}` — tipos y structs
 
 ## Dependencias
 - Specs que deben completarse antes de esta:
@@ -28,32 +30,33 @@ Problema que resuelve o valor que aporta al usuario.
 - 
 
 ## Esquema de datos (si aplica)
-```sql
--- SurrealDB
+```
+-- Define aquí las entidades y sus campos
+-- Usa el lenguaje de query de tu DB (SQL, SurrealQL, Prisma schema, etc.)
 ```
 
 ## Endpoints (si aplica)
-| Método | Ruta | Descripción | Quién implementa |
-|--------|------|-------------|-----------------|
-| GET    |      |             | OpenCode        |
-| POST   |      |             | OpenCode        |
-| PUT    |      |             | OpenCode        |
-| PATCH  |      |             | OpenCode        |
-| DELETE |      |             | OpenCode        |
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET    |      |             |
+| POST   |      |             |
+| PUT    |      |             |
+| PATCH  |      |             |
+| DELETE |      |             |
 
 ## Componentes frontend (si aplica)
 | Componente | Responsabilidad |
 |------------|----------------|
 |            |                |
 
-## División Claude / OpenCode
-| Tarea | Quién |
-|-------|-------|
-| Spec y criterios de aceptación | Claude |
-| Diseño de tipos y esquema | Claude |
-| Implementación de handlers/componentes | OpenCode |
-| Queries SurrealDB | OpenCode |
-| Verificación y revisión | Claude |
+## División de trabajo
+| Tarea | Agente |
+|-------|--------|
+| Spec y criterios de aceptación | Pi / Claude |
+| Diseño de tipos y esquema | Pi / Claude |
+| Implementación de handlers/componentes | Agente local (OpenCode / otro) |
+| Queries a la base de datos | Agente local (OpenCode / otro) |
+| Verificación y revisión | Pi / Claude + humano |
 
 ## Fuera de scope
 - Lo que explícitamente NO incluye este feature
