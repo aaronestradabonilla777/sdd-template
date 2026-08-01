@@ -1,9 +1,5 @@
 {
-  "packages": [
-    "npm:pi-hermes-memory",
-    "npm:pi-subagents",
-    "npm:context-mode"
-  ],
+  "packages": [],
   "skills": [
     ".pi/skills/sdd-phase",
     ".pi/skills/sdd-spec"
