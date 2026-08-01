@@ -1,53 +1,31 @@
 # AI Rules Harness
 
-Reglas para Claude y OpenCode en cualquier proyecto que use este template.
+## Implementación
 
-## Reglas de código
+- No agregar comportamiento fuera de la spec aprobada.
+- No asumir cuando la ambigüedad cambia alcance, seguridad o arquitectura.
+- Reutilizar patrones existentes antes de crear abstracciones.
+- No modificar archivos ajenos al alcance sin justificarlo.
+- Leer el contexto relevante antes de escribir.
+- Mantener tipos, estilo, logging y comandos propios del repositorio.
 
-- **No agregar features no especificadas** — si no está en la spec, no se implementa
-- **No over-engineer** — tres líneas similares son mejores que una abstracción prematura
-- **No comentar lo obvio** — solo comentar el *por qué*, nunca el *qué*
-- **No manejar errores imposibles** — solo validar en los bordes del sistema (input del usuario, APIs externas)
-- **No backwards-compatibility hacks** — si algo no se usa, se elimina
-- **No `any`** — tipos explícitos siempre
+## Evidencia
 
-## Reglas de respuesta (Claude)
+- No afirmar que un comando pasó si no se ejecutó y observó su salida.
+- Diferenciar `passed`, `failed`, `not-run` e `inconclusive`.
+- Un test verde solo demuestra las propiedades que alcanza.
+- Un finding debe demostrar causalidad respecto del candidato.
+- Un resumen o checklist escrito por un agente no es un recibo RDD.
 
-- Respuestas cortas y directas — sin introducción ni resumen al final
-- No explicar lo que ya es obvio en el código
-- Si algo es ambiguo en la spec, preguntar antes de asumir
-- Proponer una solución con el trade-off principal, no tres opciones
+## Autoridad
 
-## Reglas de implementación (OpenCode)
+- No autodeclarar aprobado el trabajo propio.
+- No modificar el candidato durante revisión o validación read-only.
+- No reutilizar autoridad después de modificar el contenido.
+- No interpretar RDD como permiso para commit, push, PR, merge o deploy.
 
-- Leer la spec completa antes de escribir una línea
-- Una tarea a la vez — no anticipar el siguiente paso
-- Si algo no está claro después de 2 intentos, escalar a Claude
-- No modificar archivos fuera del scope de la spec
+## Entrega
 
-## Reglas de commits
-
-```
-feat:  nueva funcionalidad
-fix:   corrección de bug
-chore: mantenimiento (deps, config)
-docs:  documentación
-test:  tests
-refactor: cambio sin nueva funcionalidad ni fix
-```
-
-Mensaje en infinitivo, minúsculas, sin punto final.
-Ejemplo: `feat: add user authentication endpoint`
-
-## Reglas de PR
-
-- PRs de más de 300 líneas cambiadas deben dividirse en partes más pequeñas
-- Cada PR referencia la spec que implementa
-- Sin descripción = no se aprueba
-
-## Lo que nunca se hace
-
-- Saltar la fase SPEC
-- Escribir código sin criterios de aceptación definidos
-- Hacer un PR sin descripción
-- Pushear directo a `main`
+- Referenciar la spec y la evidencia.
+- Declarar riesgos residuales y comprobaciones omitidas.
+- Aplicar las políticas específicas del repositorio y del usuario.

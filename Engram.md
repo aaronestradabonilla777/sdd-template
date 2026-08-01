@@ -1,35 +1,45 @@
 # Engram — [Nombre del Proyecto]
 
-> Archivo vivo. Claude lo lee al inicio de cada sesión y lo actualiza con decisiones tomadas.
-> No es documentación estática — es memoria persistente del proyecto.
+> Memoria durable y agnóstica al agente. No sustituye specs, estado operativo ni
+> autoridad RDD.
 
 ## Stack
-| Layer    | Tech | Puerto |
-|----------|------|--------|
-| Backend  |      |        |
-| Database |      |        |
-| Frontend |      |        |
-| IA       |      |        |
+
+| Área | Tecnología | Puerto |
+|---|---|---|
+| Backend | | |
+| Database | | |
+| Frontend | | |
 
 ## Decisiones tomadas
-> Cada vez que se tome una decisión arquitectónica importante, Claude la registra aquí.
-- 
 
-## Convenciones del proyecto
+| ADR | Decisión | Razón |
+|---|---|---|
+| | | |
+
+## Convenciones
+
 - Nombrado:
-- Estructura de ramas:
-- Idioma del código:
+- Estructura:
+- Idioma:
+- Gestor de paquetes:
 
-## Qué sabe Claude de este proyecto
-> Claude actualiza esta sección con contexto descubierto durante el desarrollo.
-- 
+## Restricciones
 
-## Estado del proyecto
-| Módulo   | Estado | Notas |
-|----------|--------|-------|
-|          | ⏳     |       |
+-
+
+## Estado resumido
+
+| Módulo | Estado | Spec |
+|---|---|---|
+| | | |
+
+El detalle transitorio vive en `harnesses/state.md`.
 
 ## Comandos clave
+
 ```bash
-# Agrega los comandos que Claude debe conocer
+# build
+# lint
+# test
 ```

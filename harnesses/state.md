@@ -1,33 +1,33 @@
 # Operational State Harness
 
-Archivo de estado para retomar sesiones sin perder contexto.
-Claude actualiza este archivo al pausar o terminar una sesión de trabajo.
+Este archivo permite retomar trabajo. Registra observaciones; no crea autoridad.
 
 ## Sesión actual
 
-**Fecha:** —
-**Feature en progreso:** —
-**Fase actual:** — (SPEC / DISEÑO / IMPLEMENTACIÓN / VERIFICACIÓN)
+- **Fecha:**
+- **Spec activa:**
+- **Fase:** ANÁLISIS | SPEC | DISEÑO | IMPLEMENTACIÓN | RDD | VERIFICACIÓN | ENTREGA
+- **Próximo paso:**
 
-## Dónde se quedó
+## Trabajo
 
-```
-Último archivo modificado:
-Último comando ejecutado:
-Próximo paso:
-```
+- Último archivo modificado:
+- Último comando ejecutado:
+- Comprobaciones pendientes:
+- Bloqueantes:
 
-## Tareas pendientes
-- [ ] 
-- [ ] 
+## RDD
 
-## Bloqueantes
-- 
+- Modo observado: enabled | disabled | unknown
+- Proyección: workspace | staged | otra
+- Candidato congelado: sí | no | unknown
+- Estado observado: not-started | candidate-frozen | under-review | approved | escalated | inconclusive | disabled/unmanaged
+- Referencia nativa del recibo, si existe:
+- Riesgos residuales:
+
+No pegar secretos ni fabricar una referencia. Este archivo no sustituye el
+estado derivado por la autoridad RDD.
 
 ## Contexto para la próxima sesión
-> Claude escribe aquí lo que necesita recordar al retomar — decisiones a medias, dudas sin resolver, contexto que no está en el código.
 
----
-
-> Al iniciar una sesión nueva: leer este archivo antes de cualquier otra acción.
-> Al terminar: actualizar este archivo con el estado actual.
+-

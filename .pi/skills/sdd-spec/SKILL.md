@@ -1,40 +1,30 @@
 ---
 name: sdd-spec
-description: Guides the creation of SDD specs — asks the right questions before writing any code, creates spec files from the template, and validates completeness before moving to implementation
+description: Creates measurable, risk-aware SDD specs and requires explicit approval before implementation
 license: MIT
 allowed-tools: ["read", "write"]
 ---
 
 # SDD Spec Creation
 
-Este skill guía la creación de specs antes de cualquier implementación. Una spec incompleta es peor que no tener spec — define el scope, los criterios de aceptación y los edge cases antes de tocar el código.
+## Preguntas obligatorias
 
-## Cómo crear una spec
+- ¿Qué problema observable se resuelve?
+- ¿Qué queda dentro y fuera del alcance?
+- ¿Cómo se demostrará cada criterio?
+- ¿Qué edge cases e invariantes existen?
+- ¿Qué datos, permisos, contratos u operaciones sensibles se afectan?
+- ¿Qué evidencia no puede automatizarse?
 
-1. Copia `specs/_template.md` y nómbralo `specs/[nombre-feature].md`
-2. Responde estas preguntas en orden antes de llenar el template:
+## Lista para aprobación
 
-**Preguntas obligatorias:**
-- ¿Qué problema resuelve este feature para el usuario?
-- ¿Cómo sabes que está terminado? (criterios de aceptación medibles)
-- ¿Qué pasa si el input está vacío o es inválido?
-- ¿Qué pasa si falla la conexión o la DB?
-- ¿Qué queda explícitamente fuera de scope?
+- [ ] ID estable.
+- [ ] Alcance y fuera de scope.
+- [ ] Al menos dos criterios identificados y medibles.
+- [ ] Método de verificación por criterio.
+- [ ] Edge cases e invariantes.
+- [ ] Riesgos relevantes.
 
-3. Si no puedes responder alguna de estas preguntas, **no crees la spec todavía** — aclara primero con el usuario.
-
-## Validación antes de pasar a DISEÑO
-
-Una spec está lista para diseño cuando tiene:
-- [ ] Descripción clara de qué se construye (no cómo)
-- [ ] Al menos 2 criterios de aceptación medibles
-- [ ] Al menos 1 edge case identificado
-- [ ] Sección "Fuera de scope" completada
-
-## Assets
-
-El template de spec está en `assets/_template.md` y en `specs/_template.md`.
-
-## Regla clave
-
-**La spec describe comportamiento, no implementación.** No menciones lenguajes, librerías ni arquitectura en la spec — eso va en la fase de DISEÑO.
+Crear desde `specs/_template.md`. El agente puede proponer la spec, pero no debe
+marcarla aprobada sin una decisión explícita del usuario o autoridad definida
+por el proyecto. El diseño se completa después de aprobar el comportamiento.

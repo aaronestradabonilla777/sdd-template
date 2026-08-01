@@ -1,131 +1,135 @@
-# SDD Template
+# SDD Template v2
 
-Template para proyectos con **Spec-Driven Development** usando Claude Code + OpenCode + Ollama local.
+Template agnóstico para desarrollar software con **Spec-Driven Development
+(SDD)** y una integración opcional con **Receipt-Driven Development (RDD)**.
 
-## ¿Qué es SDD?
+SDD conserva la intención como fuente de verdad: antes de implementar se define
+qué se construye, por qué, qué queda fuera y cómo se comprobará. RDD añade una
+capa posterior de revisión adversarial y autorización ligada al contenido exacto
+del candidato.
 
-Spec-Driven Development es un flujo donde **ningún código existe sin una spec previa**. Antes de escribir una línea, defines qué se construye, por qué, y cuáles son los criterios para considerarlo terminado.
-
-La spec es la fuente de verdad — no el código. Esto significa que puedes llevar la misma spec a Claude, Cursor, Gemini o cualquier otro agente y reconstruir el proyecto desde la intención. El código es una consecuencia de la spec, no al revés.
-
-Esto evita el problema más común al trabajar con IA: que el modelo empiece a implementar antes de entender el problema, genere código fuera de scope, o invente features que nadie pidió.
-
-## ¿Por qué Ollama?
-
-OpenCode usa modelos locales vía Ollama — sin suscripciones, sin datos en la nube, sin costos por token de implementación. Claude Code se reserva para las decisiones que requieren razonamiento más profundo: diseño, arquitectura y revisión.
-
-## Flujo de trabajo
-
-```
-SPEC (Claude) → DISEÑO (Claude) → IMPLEMENTACIÓN (OpenCode) → VERIFICACIÓN (Claude)
+```text
+ANÁLISIS → SPEC → DISEÑO → IMPLEMENTACIÓN → RDD → VERIFICACIÓN → ENTREGA
 ```
 
-No se salta ninguna fase. Sin spec, no hay código.
+## Qué resuelve cada capa
 
-| Fase | Quién | Output |
-|------|-------|--------|
-| SPEC | Claude | Archivo en `specs/` |
-| DISEÑO | Claude | Esquema de datos, endpoints, componentes |
-| IMPLEMENTACIÓN | OpenCode | Código en `src/` |
-| VERIFICACIÓN | Claude + humano | PR aprobado |
+| Capa | Pregunta |
+|---|---|
+| SDD | ¿Estamos construyendo lo que se pidió? |
+| Tests/TDD | ¿Las propiedades comprobadas se comportan correctamente? |
+| RDD | ¿Existe evidencia suficiente para autorizar este candidato exacto? |
+| Entrega | ¿El recibo todavía corresponde al contenido que se entregará? |
 
-## Archivos del template
+RDD no reemplaza SDD, tests, CI ni revisión humana. Un test verde es evidencia,
+no autoridad total. Un resumen escrito por el mismo agente tampoco es un recibo.
 
-### `CLAUDE.md`
-Contexto que Claude lee al inicio de cada sesión: nombre del proyecto, stack, reglas específicas, comandos clave. Es la fuente de verdad para Claude sobre cómo trabajar en este proyecto.
+## Principios
 
-### `Engram.md`
-Memoria viva del proyecto. Claude la lee al inicio de cada sesión y la actualiza con decisiones tomadas, convenciones y contexto descubierto durante el desarrollo.
+- Ninguna implementación nueva sin una spec aprobada.
+- Los criterios de aceptación deben tener métodos de verificación observables.
+- El implementador no puede autodeclarar aprobado su candidato.
+- Una aprobación RDD pertenece a una huella exacta; cambiar el contenido exige
+  una nueva autorización.
+- El riesgo se deriva de las superficies afectadas y la evidencia, no únicamente
+  del tamaño del diff.
+- Sin una autoridad RDD nativa, el estado es `disabled/unmanaged`, nunca una
+  aprobación simulada.
+- Las políticas del repositorio siempre prevalecen sobre un recibo: RDD no
+  concede permiso para hacer commit, push, PR o deploy.
 
-### `docs/`
-Architecture Decision Records (ADRs) — decisiones técnicas importantes documentadas con su contexto y trade-offs. Usa `docs/ADR_template.md` como base.
+## Flujo
 
-### `specs/`
-Una spec por feature. Cada spec define qué se construye, criterios de aceptación, edge cases, esquema de datos y endpoints antes de tocar el código.
+### 1. Análisis
 
-### `harnesses/`
-Reglas de proceso que Claude y OpenCode deben seguir. Son el "sistema operativo" del flujo de trabajo.
+Investiga el contexto y los riesgos sin modificar el producto.
 
-| Harness | Qué define |
-|---------|-----------|
-| `phase.md` | El flujo SPEC → DISEÑO → IMPLEMENTACIÓN → VERIFICACIÓN |
-| `isolation.md` | Qué hace Claude vs qué hace OpenCode |
-| `structure.md` | Estructura de carpetas: Feature Sliced Design + Clean Architecture |
-| `ai-rules.md` | Reglas de comportamiento: no over-engineer, convención de commits, límite de PR |
-| `state.md` | Estado de sesión — dónde se quedó el proyecto al retomar |
-| `review.md` | Checklist de PR: tamaño, criterios, descripción |
-| `contract.md` | Definition of Done — cuándo un feature está realmente terminado |
+### 2. Spec
 
-## Estructura de código
+Crea una spec desde `specs/_template.md`. Debe incluir alcance, criterios con
+IDs estables, edge cases, riesgos, invariantes, evidencia y fuera de scope.
 
-El template sigue **Feature Sliced Design** en frontend y **Clean Architecture por módulos** en backend. Es agnóstico al stack — adapta las extensiones a tu lenguaje. Ver `harnesses/structure.md` para la guía completa.
+### 3. Diseño
 
-```
-# Frontend (React / Vue / Svelte)
-src/features/[nombre]/
-  [Nombre].{tsx,vue,svelte}   ← vista
-  [Nombre].viewModel.ts       ← lógica y estado
-  [Nombre].types.ts           ← tipos e interfaces
+Define arquitectura, contratos, componentes, dependencias y decisiones
+necesarias para satisfacer la spec aprobada.
 
-# Backend (Rust / Node / Python / Go)
-src/[nombre]/
-  handler.{rs,ts,py}         ← rutas HTTP
-  service.{rs,ts,py}         ← lógica de negocio
-  model.{rs,ts,py}           ← tipos y structs
-```
+### 4. Implementación
 
-## Harnesses compatibles
+Implementa el candidato y ejecuta las comprobaciones ordinarias. Declara también
+qué no pudo comprobarse.
 
-Este template funciona con los tres harnesses principales. Usa el que prefieras — el flujo SDD es el mismo en todos.
+### 5. RDD
 
-| Harness | Archivo de contexto | Para qué |
-|---------|-------------------|---------|
-| [Claude Code](https://claude.ai/code) | `CLAUDE.md` | Diseño, arquitectura, revisión profunda |
-| [Pi](https://pi.dev) | `AGENTS.md` | Terminal ligero, multi-modelo, extensible |
-| [OpenCode](https://opencode.ai) | `CLAUDE.md` | Implementación con modelos locales vía Ollama |
+Si existe una autoridad compatible, congela el candidato, deriva el esfuerzo de
+revisión desde el riesgo, inspecciona, permite como máximo la corrección acotada
+autorizada, valida esa corrección en read-only y emite un recibo ligado a la
+huella. Consulta `harnesses/rdd.md`.
 
-## Inicio rápido por harness
+### 6. Verificación
 
-### Claude Code
+Contrasta independientemente el resultado contra spec, diseño y criterios. Si
+la verificación exige modificar el candidato, se vuelve a implementación y la
+autorización anterior deja de gobernar el contenido nuevo.
+
+### 7. Entrega
+
+Valida el mismo recibo contra el candidato actual y aplica las políticas del
+repositorio. La entrega puede continuar bajo política ordinaria cuando RDD esté
+explícitamente deshabilitado, pero no debe presentarse como aprobada por RDD.
+
+## Estructura
+
+| Ruta | Responsabilidad |
+|---|---|
+| `AGENTS.md` / `CLAUDE.md` | Contexto para agentes compatibles |
+| `Engram.md` | Memoria durable y decisiones del proyecto |
+| `specs/` | Intención y criterios por feature |
+| `harnesses/phase.md` | Máquina de fases |
+| `harnesses/rdd.md` | Contrato de interoperabilidad y autoridad RDD |
+| `harnesses/contract.md` | Definition of Done y contrato de evidencia |
+| `harnesses/review.md` | Revisión basada en riesgo |
+| `harnesses/isolation.md` | Separación de roles y capacidades |
+| `harnesses/state.md` | Estado operativo, sin fabricar autoridad |
+| `docs/` | ADRs y guías de migración |
+
+## Compatibilidad
+
+El template no obliga a usar un proveedor, modelo ni runtime concreto. Puede
+utilizarse con Codex, Claude Code, Pi, OpenCode, Cursor u otros agentes que lean
+instrucciones del repositorio.
+
+La integración recomendada para recibos nativos es
+[Gentle-AI](https://github.com/Gentleman-Programming/gentle-ai). Gentle-AI se
+instala y configura por separado; este template no copia su implementación ni
+fabrica sustitutos Markdown de sus recibos.
+
+## Inicio rápido
+
+1. Crea un repositorio desde este template.
+2. Completa `AGENTS.md` o el archivo de contexto de tu agente.
+3. Registra stack, comandos y decisiones iniciales en `Engram.md`.
+4. Copia `specs/_template.md` para crear la primera feature.
+5. Obtén aprobación explícita de la spec.
+6. Sigue `harnesses/phase.md` hasta verificación y entrega.
+
+### Gentle-AI opcional
+
+Consulta primero los requisitos y versiones vigentes del proyecto upstream.
+Después de instalarlo, la integración puede diagnosticarse y controlarse con:
+
 ```bash
-# CLAUDE.md ya está configurado
-claude
+gentle-ai doctor
+gentle-ai review mode status --cwd .
+gentle-ai review mode enable --cwd .
 ```
 
-### Pi
-```bash
-npm install -g --ignore-scripts @earendil-works/pi-coding-agent
-pi install npm:pi-hermes-memory npm:pi-subagents npm:context-mode
-pi
-```
+No se incluye una instalación automática para evitar ejecutar scripts remotos o
+modificar configuraciones globales sin consentimiento.
 
-### OpenCode + Ollama
-```bash
-ollama pull qwen2.5-coder
-opencode
-```
+## Migración desde v1
 
-## Inicio rápido general
-
-1. Usa este repo como template en GitHub
-2. Clona tu nuevo repo
-3. Edita `Engram.md` con tu stack, puertos y decisiones iniciales
-4. Edita `CLAUDE.md` / `AGENTS.md` con el contexto del proyecto
-5. Si tu stack es soportado, instala skills automáticas: `npx autoskills`
-6. Crea tu primera spec en `specs/` copiando `specs/_template.md`
-7. El harness diseña → el agente local implementa → el harness verifica
-
-## Paquetes Pi recomendados
-
-Si usas Pi, estos paquetes están preconfigurados en `.pi/settings.json`:
-
-| Paquete | Para qué |
-|---------|---------|
-| `pi-hermes-memory` | Memoria persistente entre sesiones (complementa `Engram.md`) |
-| `pi-subagents` | Delega fases a sub-agentes, encaja con el modelo Claude/OpenCode |
-| `context-mode` | Ahorra hasta 98% del context window en specs largas |
-
-## Herramientas opcionales recomendadas
-
-- [autoskills](https://github.com/midudev/autoskills) — detecta tu stack e instala skills de IA curadas automáticamente (`npx autoskills`). Soporta React, Next.js, Vue, TypeScript, Supabase, Tailwind y más.
-- [caveman](https://github.com/JuliusBrussee/caveman) — reduce ~75% los tokens de output de Claude manteniendo precisión técnica (`/caveman` en Claude Code).
+La versión 1 estaba orientada principalmente a Claude Code + OpenCode + Ollama.
+La v2 reemplaza esa asignación fija por roles y capacidades, conserva SDD como
+obligatorio e incorpora RDD como autoridad opcional. Sigue la guía
+[`docs/migration-v2-rdd.md`](docs/migration-v2-rdd.md).

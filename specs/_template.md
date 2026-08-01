@@ -1,69 +1,90 @@
-# Spec: [Nombre del Feature]
+---
+id: SPEC-YYYY-NNN
+status: draft
+approved_by: null
+approved_at: null
+---
+
+# Spec: [Nombre del feature]
 
 ## ¿Qué se construye?
-Descripción en lenguaje simple de qué hace este feature.
+
+Describe el comportamiento esperado en lenguaje observable, sin decidir aún la
+implementación.
 
 ## ¿Por qué?
-Problema que resuelve o valor que aporta al usuario.
 
-## Ubicación en el proyecto
-- **Frontend:** `src/features/[nombre]/` (si aplica)
-  - `[Nombre].{tsx,vue,svelte}` — vista
-  - `[Nombre].viewModel.{ts,js}` — lógica y estado
-  - `[Nombre].types.ts` — tipos e interfaces
-- **Backend:** `src/[nombre]/` (si aplica)
-  - `handler.{rs,ts,py,go}` — rutas HTTP
-  - `service.{rs,ts,py,go}` — lógica de negocio
-  - `model.{rs,ts,py,go}` — tipos y structs
+Problema que resuelve y valor para el usuario.
 
-## Dependencias
-- Specs que deben completarse antes de esta:
-  - [ ] 
+## Alcance
 
-## Criterios de aceptación
-- [ ] 
-- [ ] 
-- [ ] 
+- Incluye:
+- No incluye:
+
+## Criterios de aceptación y evidencia
+
+| ID | Comportamiento observable | Método de verificación |
+|---|---|---|
+| AC-001 | | |
+| AC-002 | | |
 
 ## Edge cases
-- 
-- 
 
-## Esquema de datos (si aplica)
-```
--- Define aquí las entidades y sus campos
--- Usa el lenguaje de query de tu DB (SQL, SurrealQL, Prisma schema, etc.)
-```
+- Input vacío o inválido:
+- Dependencia no disponible:
+- Usuario sin permisos:
 
-## Endpoints (si aplica)
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| GET    |      |             |
-| POST   |      |             |
-| PUT    |      |             |
-| PATCH  |      |             |
-| DELETE |      |             |
+## Invariantes
 
-## Componentes frontend (si aplica)
-| Componente | Responsabilidad |
-|------------|----------------|
-|            |                |
+- Propiedades que deben continuar siendo verdaderas:
 
-## División de trabajo
-| Tarea | Agente |
-|-------|--------|
-| Spec y criterios de aceptación | Pi / Claude |
-| Diseño de tipos y esquema | Pi / Claude |
-| Implementación de handlers/componentes | Agente local (OpenCode / otro) |
-| Queries a la base de datos | Agente local (OpenCode / otro) |
-| Verificación y revisión | Pi / Claude + humano |
+## Riesgos
 
-## Fuera de scope
-- Lo que explícitamente NO incluye este feature
+- Superficies sensibles afectadas:
+- Datos que podrían exponerse o perderse:
+- Compatibilidad que debe preservarse:
+- Operaciones difíciles de revertir:
+
+## Dependencias
+
+- Specs o contratos previos:
+
+## Diseño
+
+Completar después de aprobar el comportamiento.
+
+### Arquitectura y componentes
+
+-
+
+### Datos y contratos
+
+-
+
+### Decisiones y trade-offs
+
+-
+
+## Plan de tareas
+
+- [ ] T-001:
+- [ ] T-002:
+
+## Evidencia no automatizable
+
+- Validaciones manuales requeridas:
+
+## Riesgos aceptados
+
+| Riesgo | Motivo | Autoridad que lo acepta |
+|---|---|---|
+| | | |
 
 ## Definition of Done
-- [ ] Compila sin errores ni warnings
-- [ ] Criterios de aceptación cumplidos
-- [ ] Edge cases cubiertos
-- [ ] Tipos definidos (no `any`)
-- [ ] PR con descripción del cambio
+
+- [ ] Spec aprobada antes de implementar.
+- [ ] Criterios con evidencia verificable.
+- [ ] Edge cases e invariantes cubiertos.
+- [ ] Comprobaciones omitidas declaradas.
+- [ ] Estado RDD declarado sin fabricar autoridad.
+- [ ] Verificación independiente contra esta spec.

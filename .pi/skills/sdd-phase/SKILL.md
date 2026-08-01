@@ -1,46 +1,28 @@
 ---
 name: sdd-phase
-description: Enforces the mandatory SDD phase flow (SPEC → DESIGN → IMPLEMENTATION → VERIFICATION) and blocks any coding before a spec exists
+description: Enforces ANALYSIS → SPEC → DESIGN → IMPLEMENTATION → RDD → VERIFICATION → DELIVERY and blocks implementation before spec approval
 license: MIT
 allowed-tools: ["read", "write", "bash"]
 ---
 
-# SDD Phase Enforcement
+# SDD + RDD Phase Enforcement
 
-Este skill enforza el flujo de fases obligatorio de Spec-Driven Development. No se salta ninguna fase. Sin spec, no hay código.
+## Flujo
 
-## Flujo obligatorio
-
-```
-SPEC → DISEÑO → IMPLEMENTACIÓN → VERIFICACIÓN
+```text
+ANÁLISIS → SPEC → DISEÑO → IMPLEMENTACIÓN → RDD → VERIFICACIÓN → ENTREGA
 ```
 
-## Reglas que debes seguir
+## Reglas
 
-1. **Antes de implementar cualquier feature**, verifica que existe un archivo en `specs/` que lo describe.
-2. Si no existe la spec, **no escribas código**. Crea la spec primero usando `specs/_template.md` como base.
-3. Si la spec existe pero no tiene criterios de aceptación definidos, **completa la spec antes de implementar**.
-4. Cada fase tiene un output claro:
+1. Leer `Engram.md`, `harnesses/state.md` y la spec activa.
+2. No implementar sin una spec explícitamente aprobada.
+3. No confundir tests o narración con autorización RDD.
+4. No fabricar recibos; usar la autoridad nativa o declarar
+   `disabled/unmanaged`.
+5. Si cambia un candidato revisado, volver a RDD antes de entrega.
+6. Durante validación read-only, no escribir en el candidato.
+7. Antes de entregar, validar permisos del repo y el recibo aplicable.
 
-| Fase | Output esperado |
-|------|----------------|
-| SPEC | Archivo en `specs/[nombre-feature].md` |
-| DISEÑO | Sección de esquema/endpoints completada en la spec |
-| IMPLEMENTACIÓN | Código en `src/` que cumple la spec |
-| VERIFICACIÓN | Checklist de `harnesses/review.md` completo |
-
-## Cómo empezar una sesión
-
-Al iniciar, lee:
-1. `Engram.md` — estado actual del proyecto
-2. `harnesses/state.md` — dónde se quedó el trabajo
-3. La spec del feature en curso (si hay uno activo)
-
-## Cuándo usar este skill
-
-Siempre. Está activo en todas las sesiones de trabajo en este proyecto.
-
-## Escalado entre agentes
-
-Ver `harnesses/isolation.md` para saber qué tareas corresponden a Pi vs agentes de implementación.
-Si un agente de implementación no puede resolver algo en 2 intentos, escala a Pi.
+Consultar `harnesses/phase.md`, `harnesses/rdd.md` y
+`harnesses/isolation.md` para los contratos completos.
