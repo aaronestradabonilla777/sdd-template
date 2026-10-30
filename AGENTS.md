@@ -127,4 +127,5 @@ Cualquier Worker en Tier 2 o Tier 3 tiene un límite estricto de **2 intentos de
 - Memoria Persistente: `harnesses/engram.md` y `Engram.md`
 - Estándares de Código y Commits: `harnesses/ai-rules.md`
 - Criterios de Review y PRs: `harnesses/review.md`
+- Estándar Visual y Anti-Slop (Frontend): `harnesses/frontend-design.md`
 - Estructura de Proyecto: `harnesses/structure.md`
