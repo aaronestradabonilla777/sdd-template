@@ -1,0 +1,221 @@
+{
+  "tier": 3,
+  "name": "Tier 3: Cross-Feature Combinations Suite",
+  "description": "Pairwise and multi-variable interactions across sizing, discovery, closing, multi-agent roles, model tiers, circuit breakers, and adapters (8 comprehensive combination suites).",
+  "suites": [
+    {
+      "suite_id": "T3-COMB-01",
+      "name": "Sizing (Tier 1) × Discovery (Light) × Micro-Spec × Worker (Tier 2/3) × Fast Closing",
+      "description": "Validates the complete lifecycle interaction for a small hotfix in a production repository.",
+      "variables": {
+        "sizing_tier": 1,
+        "discovery_mode": "light (steps 1-3)",
+        "spec_template": "specs/_template_hotfix.md",
+        "worker_tier": 2,
+        "circuit_breaker_max": 2,
+        "closing_mode": "fast-track (PVS light + Engram 1-line update)"
+      },
+      "interaction_flow": [
+        "Discovery identifies repository type, package manager (pnpm), and build command",
+        "Sizing evaluates 4 questionnaire items -> all NO -> activates Tier 1 Fast-Track",
+        "Micro-spec authored under 25 lines affecting <=3 files",
+        "Worker executes change adhering to ponytail simplicity",
+        "Single-turn execution passes tests without tripping circuit breaker",
+        "Closing signs off PVS and adds concise entry to Engram.md"
+      ],
+      "invariants": [
+        "Micro-spec line count <= 25",
+        "Affected files count <= 3",
+        "Net changed LOC <= 80",
+        "Zero schema or breaking contract changes",
+        "Estimated token consumption < 4,500 tokens"
+      ],
+      "authoritative_source": "TEST_INFRA.md:176-190"
+    },
+    {
+      "suite_id": "T3-COMB-02",
+      "name": "Sizing Escalation × Circuit Breaker × Full SDD Switch",
+      "description": "Validates dynamic escalation when a hotfix discovers schema dependencies requiring Tier 2 Standard SDD.",
+      "variables": {
+        "initial_tier": 1,
+        "escalated_tier": 2,
+        "trigger": "database schema mutation discovered during implementation",
+        "escalation_target": "Orchestrator (Tier 1)",
+        "new_spec_template": "specs/_template.md"
+      },
+      "interaction_flow": [
+        "Worker starts implementation under Tier 1 micro-spec",
+        "Worker identifies that fix requires altering a shared database column",
+        "Dynamic escalation circuit breaker trips immediately",
+        "Worker halts code mutation and packages escalation dossier",
+        "Orchestrator elevates task to Tier 2 Standard SDD",
+        "Standard specification drafted in specs/_template.md with formal acceptance criteria",
+        "Worker resumes under Tier 2 contract with Reviewer gate"
+      ],
+      "invariants": [
+        "Zero unauthorized schema mutation under Tier 1",
+        "Circuit breaker prevents illegal out-of-scope modifications",
+        "Full SDD phases (SPEC -> DISEÑO -> IMPL -> VERIF) enforced upon escalation"
+      ],
+      "authoritative_source": "TEST_INFRA.md:191-205"
+    },
+    {
+      "suite_id": "T3-COMB-03",
+      "name": "Multi-Agent Role Chain (Orchestrator → Worker → Reviewer) × 80/20 Token Budget",
+      "description": "Validates delegation across 3 specialized roles while maintaining the 80/20 token budget ratio.",
+      "variables": {
+        "orchestrator_model": "Tier 1 (Pro)",
+        "worker_model": "Tier 2 (Fast/Flash)",
+        "reviewer_model": "Tier 2 (Fast/Flash)",
+        "token_volume_ratio": "80% Tier 2 / 20% Tier 1",
+        "coordination_format": "Tripartite envelope (<300 words)"
+      },
+      "interaction_flow": [
+        "Orchestrator designs Result Contract and feature spec in specs/",
+        "Orchestrator dispatches Worker via message (<300 words) referencing spec path",
+        "Worker implements feature in src/ and runs local verification command",
+        "Worker submits handoff report to Reviewer",
+        "Reviewer verifies acceptance criteria, type safety, and <300 line PR limit",
+        "Reviewer signs off and notifies Orchestrator"
+      ],
+      "invariants": [
+        "Orchestrator touches 0 application source files in src/",
+        "All coordination messages <= 300 words",
+        ">=80% of total tokens processed by Tier 2 models",
+        "PR net lines <= 300 LOC"
+      ],
+      "authoritative_source": "TEST_INFRA.md:206-220"
+    },
+    {
+      "suite_id": "T3-COMB-04",
+      "name": "Tier 3 Epic Sizing × Full Discovery × Milestone Slices × Adversarial Challenger × Forensic Auditor",
+      "description": "Validates high-assurance governance for complex architectural transformations.",
+      "variables": {
+        "sizing_tier": 3,
+        "discovery_mode": "full 6-pillar audit",
+        "spec_template": "specs/_template_epic.md",
+        "adversarial_gate": "mandatory Challenger sign-off before code",
+        "slice_limit": "<300 LOC per slice",
+        "veto_authority": "Forensic Auditor (Binary Veto)"
+      },
+      "interaction_flow": [
+        "Discovery Specialist conducts 6-pillar audit, compiling ARCH_AUDIT.md",
+        "Sizing classifies task as Tier 3 Epic (>10 files, architectural impact)",
+        "Orchestrator drafts specs/_template_epic.md decomposing into 3 independent slices",
+        "Challenger stress-tests architecture for race conditions, boundary failures, and security gaps",
+        "Challenger approves and signs Adversarial Review Gate",
+        "Workers implement slices M1, M2, M3 sequentially under Tier 2 specs",
+        "Forensic Auditor audits full git diff against main: verifies test assertion integrity and lockfiles",
+        "Forensic Auditor issues Signed Integrity Certificate; Closing protocol completes"
+      ],
+      "invariants": [
+        "Zero code writing permitted prior to signed Adversarial Review Gate",
+        "All slices form a Directed Acyclic Graph (DAG) with <300 LOC each",
+        "Forensic Auditor retains absolute binary veto over release",
+        "Rollback strategy fully documented and verified"
+      ],
+      "authoritative_source": "TEST_INFRA.md:221-236"
+    },
+    {
+      "suite_id": "T3-COMB-05",
+      "name": "Multi-Environment Adapters × 7 Roles × Sandboxing Fallbacks",
+      "description": "Validates runtime portability of the 7 roles across Antigravity, Claude Code, and OpenCode.",
+      "variables": {
+        "environments": ["Antigravity", "Claude Code", "OpenCode"],
+        "master_instruction": "AGENTS.md",
+        "adapters": ["docs/adapters/antigravity.md", "docs/adapters/claude_code.md", "docs/adapters/opencode.md"],
+        "roles": ["Orchestrator", "Explorer", "Discovery Specialist", "Worker", "Reviewer", "Challenger", "Forensic Auditor"]
+      },
+      "interaction_flow": [
+        "Master rules in AGENTS.md verified identical across all runtime environments",
+        "Antigravity executes with tool-based sandboxing; fallback to file inspection verified on permission denial",
+        "Claude Code CLI loads CLAUDE.md with prompt caching prefix discipline",
+        "OpenCode executes with local SLM constrained context (8k-32k) loading scoped specs",
+        "All 7 role invariants hold identically across all 3 platforms"
+      ],
+      "invariants": [
+        "Zero vendor brand names in core phase harnesses",
+        "Graceful fallback to read-only file tools upon sandbox denial",
+        "Universal tripartite coordination envelope respected across environments"
+      ],
+      "authoritative_source": "TEST_INFRA.md:237-251"
+    },
+    {
+      "suite_id": "T3-COMB-06",
+      "name": "Token Budget Rules × File-Based Coordination × 100-Line BRIEFING × 150-Line Engram",
+      "description": "Validates system-wide memory discipline and anti-bloat invariants across long multi-turn sessions.",
+      "variables": {
+        "briefing_line_cap": 100,
+        "engram_line_range": [80, 150],
+        "message_word_cap": 300,
+        "archive_targets": ["BRIEFING_ARCHIVE.md", "docs/engram_archive.md"]
+      },
+      "interaction_flow": [
+        "Agent records working memory in BRIEFING.md; locked sections (🔒) remain immutable",
+        "When BRIEFING.md approaches 100 lines, past mutable entries move to BRIEFING_ARCHIVE.md",
+        "Inter-agent messages pass file paths only; zero code dumps permitted in chat payloads",
+        "At project closing, Engram.md synchronized with new decisions and status",
+        "When Engram.md exceeds 150 lines, completed features pruned to docs/engram_archive.md"
+      ],
+      "invariants": [
+        "BRIEFING.md strictly < 100 lines",
+        "Engram.md strictly between 80 and 150 lines",
+        "All coordination messages < 300 words",
+        "Zero quadratic conversational context bloat"
+      ],
+      "authoritative_source": "TEST_INFRA.md:252-264"
+    },
+    {
+      "suite_id": "T3-COMB-07",
+      "name": "Worker Retry Failure × 2-Attempt Breaker Escalation × Orchestrator Intervention",
+      "description": "Validates error containment and circuit breaker escalation during persistent build/test failures.",
+      "variables": {
+        "max_attempts": 2,
+        "worker_tier": 2,
+        "escalation_tier": 1,
+        "circuit_breaker_action": "HALT IMMEDIATELY & ESCALATE"
+      },
+      "interaction_flow": [
+        "Worker executes initial code change; local test fails (Attempt 1)",
+        "Worker analyzes error log and applies code patch; re-test fails with secondary error (Attempt 2)",
+        "2-Attempt Circuit Breaker trips: Worker is legally forbidden from attempting Attempt 3",
+        "Worker compiles verbatim error log, git diff, and target file list into escalation dossier",
+        "Escalation envelope transmitted to Orchestrator",
+        "Orchestrator (Tier 1 model) diagnoses root architectural issue and provides updated guidance",
+        "Worker restarts with fresh circuit breaker state and successfully passes"
+      ],
+      "invariants": [
+        "Worker never executes Attempt 3 under any circumstance",
+        "Halts infinite retry loops and eliminates runaway token billing",
+        "Escalation dossier provides complete verbatim error context"
+      ],
+      "authoritative_source": "TEST_INFRA.md:265-278"
+    },
+    {
+      "suite_id": "T3-COMB-08",
+      "name": "Adversarial Threat Detection × Forensic Integrity Violation × Rollback Execution",
+      "description": "Validates red-team adversarial detection, auditor veto authority, and rollback invocation.",
+      "variables": {
+        "challenger_role": "Adversarial Red Team (Tier 1)",
+        "auditor_role": "Forensic Auditor (Tier 1)",
+        "veto_type": "BINARY VETO (Merge Blocked)",
+        "mitigation_path": "Epic Rollback Strategy Execution"
+      },
+      "interaction_flow": [
+        "Worker weakens test assertion (e.g. changing strict equality to true) to force a passing build",
+        "Reviewer performs standard style review and misses the subtle assertion edit",
+        "Adversarial Challenger conducts red-team probing and hypothesizes race condition exploit",
+        "Forensic Auditor audits git diff against main: detects tampered assertion in tests/",
+        "Forensic Auditor triggers BINARY VETO: merge unconditionally blocked",
+        "Rollback protocol executed per Section 5 of specs/_template_epic.md",
+        "Repository restored to clean baseline state; tampered diff eradicated"
+      ],
+      "invariants": [
+        "Forensic Auditor veto cannot be bypassed or overridden",
+        "Test suite integrity is preserved with zero loosened assertions",
+        "Clean rollback executed without data corruption or orphan files"
+      ],
+      "authoritative_source": "TEST_INFRA.md:279-293"
+    }
+  ]
+}

@@ -1,0 +1,1049 @@
+{
+  "tier": 1,
+  "name": "Tier 1: Feature Coverage Suite",
+  "description": "Comprehensive feature coverage test cases covering all 16 features from PROJECT.md Feature Inventory (>=5 tests per feature, 80 total).",
+  "test_cases": [
+    {
+      "test_id": "TC-T1-F01-01",
+      "feature_id": 1,
+      "feature_name": "Agnostic 7-Role Taxonomy",
+      "title": "Orchestrator Role Definition & Boundaries",
+      "description": "Asserts Orchestrator role is defined in harnesses/multi-agent.md as Tier 1 model, meta-controller with strictly forbidden direct source code modifications.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:23, spec_miner_2/analysis.md:95-105",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Orchestrator", "Tier 1", "NEVER writes or modifies", "src/"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F01-02",
+      "feature_id": 1,
+      "feature_name": "Agnostic 7-Role Taxonomy",
+      "title": "Explorer Role Definition & Read-Only Invariant",
+      "description": "Asserts Explorer role is defined as Tier 2 model with 100% read-only tools and no mutating tools.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:23, spec_miner_2/analysis.md:106-115",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Explorer", "Tier 2", "READ-ONLY", "view_file"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F01-03",
+      "feature_id": 1,
+      "feature_name": "Agnostic 7-Role Taxonomy",
+      "title": "Discovery Specialist Role Definition",
+      "description": "Asserts Discovery Specialist role is defined for brownfield architecture audit across 6 pillars.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:23, spec_miner_2/analysis.md:116-125",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Discovery Specialist", "Tier 1", "ARCH_AUDIT.md", "Engram.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F01-04",
+      "feature_id": 1,
+      "feature_name": "Agnostic 7-Role Taxonomy",
+      "title": "Worker Role Definition & Implementation Boundaries",
+      "description": "Asserts Worker role is defined as Tier 2/3 model subject to 2-attempt circuit breaker and <300 line PR limit.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:23, spec_miner_2/analysis.md:126-137",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Worker", "Tier 2", "Tier 3", "2-Attempt Circuit Breaker", "Result Contract"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F01-05",
+      "feature_id": 1,
+      "feature_name": "Agnostic 7-Role Taxonomy",
+      "title": "Reviewer, Challenger, and Forensic Auditor Separation of Duties",
+      "description": "Asserts Reviewer, Challenger, and Forensic Auditor separation of duties including the Auditor's absolute Binary Veto.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:23, spec_miner_2/analysis.md:138-173",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Reviewer", "Challenger", "Forensic Auditor", "BINARY VETO"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F02-01",
+      "feature_id": 2,
+      "feature_name": "3-Tier Model Matrix & 80/20 Budget",
+      "title": "Tier 1 Model Definition & Role Pinning",
+      "description": "Asserts Tier 1 Pro/Frontier category pins Orchestrator, Challenger, and Forensic Auditor.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:24, spec_miner_2/analysis.md:176-187",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 1", "Pro", "Frontier", "Orchestrator", "Challenger", "Forensic Auditor"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F02-02",
+      "feature_id": 2,
+      "feature_name": "3-Tier Model Matrix & 80/20 Budget",
+      "title": "Tier 2 Model Definition & Role Pinning",
+      "description": "Asserts Tier 2 Economical/Fast category pins Worker, Explorer, and Reviewer.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:24, spec_miner_2/analysis.md:176-187",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 2", "Economical", "Fast", "Worker", "Explorer", "Reviewer"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F02-03",
+      "feature_id": 2,
+      "feature_name": "3-Tier Model Matrix & 80/20 Budget",
+      "title": "Tier 3 Model Definition & Role Pinning",
+      "description": "Asserts Tier 3 Local SLM/Ultra-Light category is pinned to mechanical CRUD, unit tests, and isolated scripts.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:24, spec_miner_2/analysis.md:176-187",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 3", "Local", "Ultra-Light", "Ollama", "CRUD"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F02-04",
+      "feature_id": 2,
+      "feature_name": "3-Tier Model Matrix & 80/20 Budget",
+      "title": "80/20 Token Budget Rule Allocation",
+      "description": "Asserts the 80/20 budget rule allocating >=80% total token volume to Tier 2 and Tier 3 models.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:24, ORIGINAL_REQUEST.md:15",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["80%", "Tier 2", "Tier 3", "budget"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F02-05",
+      "feature_id": 2,
+      "feature_name": "3-Tier Model Matrix & 80/20 Budget",
+      "title": "Prohibited Tasks Specification by Tier",
+      "description": "Asserts prohibited tasks table prevents Tier 1 from routine lints and Tier 3 from unsupervised architectural changes.",
+      "target_file": "harnesses/multi-agent.md",
+      "authoritative_source": "PROJECT.md:24, spec_miner_2/analysis.md:181-187",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Prohibited Tasks", "lint", "architectural"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F03-01",
+      "feature_id": 3,
+      "feature_name": "2-Attempt Circuit Breaker",
+      "title": "Circuit Breaker Initial Failure State",
+      "description": "Asserts initial test/build failure enters Attempt 1 state with error packaging.",
+      "target_file": "harnesses/isolation.md",
+      "authoritative_source": "PROJECT.md:25, spec_miner_2/analysis.md:188-219",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Circuit Breaker", "Attempt #1", "error"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F03-02",
+      "feature_id": 3,
+      "feature_name": "2-Attempt Circuit Breaker",
+      "title": "Circuit Breaker Attempt 1 Success Reset",
+      "description": "Asserts success on Attempt 1 allows proceeding without escalation.",
+      "target_file": "harnesses/isolation.md",
+      "authoritative_source": "PROJECT.md:25, spec_miner_2/analysis.md:197-200",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["YES", "proceed"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F03-03",
+      "feature_id": 3,
+      "feature_name": "2-Attempt Circuit Breaker",
+      "title": "Circuit Breaker Attempt 2 Transition",
+      "description": "Asserts failure on Attempt 1 advances worker to Attempt 2 state.",
+      "target_file": "harnesses/isolation.md",
+      "authoritative_source": "PROJECT.md:25, spec_miner_2/analysis.md:204-206",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Attempt #2", "re-test"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F03-04",
+      "feature_id": 3,
+      "feature_name": "2-Attempt Circuit Breaker",
+      "title": "Circuit Breaker Trip on Consecutive Failure",
+      "description": "Asserts failure on Attempt 2 trips the circuit breaker, stopping execution immediately.",
+      "target_file": "harnesses/isolation.md",
+      "authoritative_source": "PROJECT.md:25, spec_miner_2/analysis.md:210-218",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["CIRCUIT BREAKER TRIPPED", "STOP IMMEDIATELY", "Attempt #3"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F03-05",
+      "feature_id": 3,
+      "feature_name": "2-Attempt Circuit Breaker",
+      "title": "Circuit Breaker Escalation Contract",
+      "description": "Asserts tripped breaker packages verbatim error, diff, and escalates to Tier 1 Orchestrator.",
+      "target_file": "harnesses/isolation.md",
+      "authoritative_source": "PROJECT.md:25, spec_miner_2/analysis.md:213-218",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["ESCALATE", "Orchestrator", "Tier 1"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F04-01",
+      "feature_id": 4,
+      "feature_name": "Multi-Environment Adapters",
+      "title": "Antigravity Adapter Guide Existence",
+      "description": "Asserts docs/adapters/antigravity.md exists and specifies Google Gemini runtime instructions.",
+      "target_file": "docs/adapters/antigravity.md",
+      "authoritative_source": "PROJECT.md:26, PROJECT.md:95",
+      "assertion_type": "file_exists_and_contains",
+      "parameters": {
+        "patterns": ["Antigravity", "Gemini", "AGENTS.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F04-02",
+      "feature_id": 4,
+      "feature_name": "Multi-Environment Adapters",
+      "title": "Claude Code CLI Adapter Guide & Entrypoint",
+      "description": "Asserts CLAUDE.md and docs/adapters/claude_code.md exist with Claude CLI instructions.",
+      "target_file": "docs/adapters/claude_code.md",
+      "authoritative_source": "PROJECT.md:26, PROJECT.md:96",
+      "assertion_type": "file_exists_and_contains",
+      "parameters": {
+        "patterns": ["Claude Code", "CLAUDE.md", "Anthropic"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F04-03",
+      "feature_id": 4,
+      "feature_name": "Multi-Environment Adapters",
+      "title": "OpenCode / Local AI Adapter Guide & Entrypoint",
+      "description": "Asserts OPENCODE.md and docs/adapters/opencode.md exist with Ollama/SLM instructions.",
+      "target_file": "docs/adapters/opencode.md",
+      "authoritative_source": "PROJECT.md:26, PROJECT.md:97",
+      "assertion_type": "file_exists_and_contains",
+      "parameters": {
+        "patterns": ["OpenCode", "Ollama", "OPENCODE.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F04-04",
+      "feature_id": 4,
+      "feature_name": "Multi-Environment Adapters",
+      "title": "Universal AGENTS.md Multi-Environment Preamble",
+      "description": "Asserts root AGENTS.md specifies agnostic multi-agent execution across Antigravity, Claude Code, and OpenCode.",
+      "target_file": "AGENTS.md",
+      "authoritative_source": "PROJECT.md:26, ORIGINAL_REQUEST.md:14-16",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Antigravity", "Claude Code", "OpenCode"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F04-05",
+      "feature_id": 4,
+      "feature_name": "Multi-Environment Adapters",
+      "title": "Tool Calling and Sandboxing Parity across Adapters",
+      "description": "Asserts tool execution permissions and sandbox fallbacks are documented in adapter guides.",
+      "target_file": "docs/adapters/antigravity.md",
+      "authoritative_source": "PROJECT.md:26, spec_miner_2/analysis.md:32",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["fallback", "file"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F05-01",
+      "feature_id": 5,
+      "feature_name": "Token & Context Protocols",
+      "title": "File-Based Coordination Standard",
+      "description": "Asserts the non-negotiable rule 'Files for content delivery, Messages for coordination'.",
+      "target_file": "AGENTS.md",
+      "authoritative_source": "PROJECT.md:27, spec_miner_2/analysis.md:225-233",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Files for content delivery", "Messages for coordination"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F05-02",
+      "feature_id": 5,
+      "feature_name": "Token & Context Protocols",
+      "title": "Message Coordination Word Limit (<300 Words)",
+      "description": "Asserts coordination messages must be strictly under 300 words to avoid quadratic context expansion.",
+      "target_file": "AGENTS.md",
+      "authoritative_source": "PROJECT.md:27, spec_miner_2/analysis.md:230-232",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["300", "word"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F05-03",
+      "feature_id": 5,
+      "feature_name": "Token & Context Protocols",
+      "title": "100-Line BRIEFING Active Situational Memory Limit",
+      "description": "Asserts BRIEFING.md active situational memory bound is strictly under 100 lines.",
+      "target_file": "AGENTS.md",
+      "authoritative_source": "PROJECT.md:27, spec_miner_2/analysis.md:234-243",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["BRIEFING", "100", "lines"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F05-04",
+      "feature_id": 5,
+      "feature_name": "Token & Context Protocols",
+      "title": "Append-Only Locked Sections Preservation",
+      "description": "Asserts locked sections (🔒 Identity, 🔒 Constraints) are append-only and never deleted.",
+      "target_file": "AGENTS.md",
+      "authoritative_source": "PROJECT.md:27, spec_miner_2/analysis.md:237-238",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["append-only", "Identity", "Constraints"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F05-05",
+      "feature_id": 5,
+      "feature_name": "Token & Context Protocols",
+      "title": "Prompt Prefix Caching Optimization",
+      "description": "Asserts static instructions are kept at prompt prefix to enable 70-90% cache hit rate.",
+      "target_file": "CLAUDE.md",
+      "authoritative_source": "PROJECT.md:27, spec_miner_2/analysis.md:252-255",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["cache", "prompt"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F06-01",
+      "feature_id": 6,
+      "feature_name": "Pre-Change Discovery Protocol",
+      "title": "Step 1: Repo Topography Audit",
+      "description": "Asserts harnesses/discovery.md specifies Step 1 Repo Topography Audit (monorepo, workspace roots, truth sources).",
+      "target_file": "harnesses/discovery.md",
+      "authoritative_source": "PROJECT.md:28, explorer_3/analysis.md:85-88",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Paso 1", "Topografía", "repositorio"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F06-02",
+      "feature_id": 6,
+      "feature_name": "Pre-Change Discovery Protocol",
+      "title": "Step 2: Dependency Graph & Runtime Engine Audit",
+      "description": "Asserts harnesses/discovery.md specifies Step 2 package manager detection and runtime version inspection.",
+      "target_file": "harnesses/discovery.md",
+      "authoritative_source": "PROJECT.md:28, explorer_3/analysis.md:89-93",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Paso 2", "Dependencias", "Runtime", "gestor"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F06-03",
+      "feature_id": 6,
+      "feature_name": "Pre-Change Discovery Protocol",
+      "title": "Step 3: Verification Harness Inventory",
+      "description": "Asserts harnesses/discovery.md specifies Step 3 inspection of build, test, lint, and typecheck commands.",
+      "target_file": "harnesses/discovery.md",
+      "authoritative_source": "PROJECT.md:28, explorer_3/analysis.md:94-101",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Paso 3", "Verificación", "Build", "Tests"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F06-04",
+      "feature_id": 6,
+      "feature_name": "Pre-Change Discovery Protocol",
+      "title": "Step 4: Coding Conventions & Architectural Patterns Audit",
+      "description": "Asserts harnesses/discovery.md specifies Step 4 inspection of architectural patterns (FSD, Clean Arch, design tokens).",
+      "target_file": "harnesses/discovery.md",
+      "authoritative_source": "PROJECT.md:28, explorer_3/analysis.md:102-106",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Paso 4", "Convenciones", "Patrones"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F06-05",
+      "feature_id": 6,
+      "feature_name": "Pre-Change Discovery Protocol",
+      "title": "Steps 5-6: Invariants, Security Boundaries & Debt Markers Audit",
+      "description": "Asserts harnesses/discovery.md specifies Step 5 Invariants & Security and Step 6 Technical Debt markers.",
+      "target_file": "harnesses/discovery.md",
+      "authoritative_source": "PROJECT.md:28, explorer_3/analysis.md:107-115",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Paso 5", "Invariantes", "Paso 6", "Deuda"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F07-01",
+      "feature_id": 7,
+      "feature_name": "Post-Change Closing Protocol",
+      "title": "Step 1: Post-Implementation Verification Sign-Off (PVS)",
+      "description": "Asserts harnesses/closing.md specifies Step 1 clean build, test suite pass, and Acceptance Criteria evidence table.",
+      "target_file": "harnesses/closing.md",
+      "authoritative_source": "PROJECT.md:29, explorer_3/analysis.md:176-185",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Etapa 1", "Post-Implementation Verification Sign-Off", "PVS", "Criterios de Aceptación"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F07-02",
+      "feature_id": 7,
+      "feature_name": "Post-Change Closing Protocol",
+      "title": "Step 2: Project Memory Synchronization (Engram.md)",
+      "description": "Asserts harnesses/closing.md specifies Step 2 Engram synchronization of technical decisions and module statuses.",
+      "target_file": "harnesses/closing.md",
+      "authoritative_source": "PROJECT.md:29, explorer_3/analysis.md:186-191",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Etapa 2", "Engram.md", "Decisiones", "150"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F07-03",
+      "feature_id": 7,
+      "feature_name": "Post-Change Closing Protocol",
+      "title": "Step 3: Specification & Documentation Synchronization",
+      "description": "Asserts harnesses/closing.md specifies Step 3 marking specs as COMPLETADA with timestamp and verifier.",
+      "target_file": "harnesses/closing.md",
+      "authoritative_source": "PROJECT.md:29, explorer_3/analysis.md:192-200",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Etapa 3", "COMPLETADA", "Fecha de cierre"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F07-04",
+      "feature_id": 7,
+      "feature_name": "Post-Change Closing Protocol",
+      "title": "Step 4: Keep a Changelog Entry Generation",
+      "description": "Asserts harnesses/closing.md specifies Step 4 changelog generation following Keep a Changelog categories.",
+      "target_file": "harnesses/closing.md",
+      "authoritative_source": "PROJECT.md:29, explorer_3/analysis.md:201-207",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Etapa 4", "Changelog", "Added", "Changed", "Fixed"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F07-05",
+      "feature_id": 7,
+      "feature_name": "Post-Change Closing Protocol",
+      "title": "Exit Gate Approval Checklist Completeness",
+      "description": "Asserts harnesses/closing.md contains the final exit checklist required before any delivery or merge.",
+      "target_file": "harnesses/closing.md",
+      "authoritative_source": "PROJECT.md:29, explorer_3/analysis.md:208-214",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Checklist de Salida", "Gate de Aprobación", "Build", "Engram.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F08-01",
+      "feature_id": 8,
+      "feature_name": "Token-Bounded Memory Harness",
+      "title": "Engram 4-Section Layout Compliance",
+      "description": "Asserts Engram.md template contains exactly the 4 required standard sections.",
+      "target_file": "Engram.md",
+      "authoritative_source": "PROJECT.md:30, explorer_3/analysis.md:557-586",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Stack e Infraestructura", "Invariantes y Comandos", "Decisiones Técnicas Tomadas", "Estado de Módulos"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F08-02",
+      "feature_id": 8,
+      "feature_name": "Token-Bounded Memory Harness",
+      "title": "Engram Strict Line Count Budget (80-150 Lines)",
+      "description": "Asserts harnesses/engram.md defines the 80 to 150 lines strict budget constraint for Engram.md.",
+      "target_file": "harnesses/engram.md",
+      "authoritative_source": "PROJECT.md:30, explorer_3/analysis.md:551-553",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["80", "150", "líneas"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F08-03",
+      "feature_id": 8,
+      "feature_name": "Token-Bounded Memory Harness",
+      "title": "Engram Pruning and Archival Protocol",
+      "description": "Asserts harnesses/engram.md defines pruning mechanism archiving obsolete decisions to docs/engram_archive.md.",
+      "target_file": "harnesses/engram.md",
+      "authoritative_source": "PROJECT.md:30, explorer_3/analysis.md:554-555",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Poda", "docs/engram_archive.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F08-04",
+      "feature_id": 8,
+      "feature_name": "Token-Bounded Memory Harness",
+      "title": "Engram Information Density Rules",
+      "description": "Asserts harnesses/engram.md forbids conversational logs, raw code snippets, and error transcripts.",
+      "target_file": "harnesses/engram.md",
+      "authoritative_source": "PROJECT.md:30, explorer_3/analysis.md:553",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Densidad", "hechos", "decisiones"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F08-05",
+      "feature_id": 8,
+      "feature_name": "Token-Bounded Memory Harness",
+      "title": "Engram Lifecycle across Sessions",
+      "description": "Asserts harnesses/engram.md mandates reading Engram at session start and syncing at task closing.",
+      "target_file": "harnesses/engram.md",
+      "authoritative_source": "PROJECT.md:30, explorer_3/analysis.md:588-591",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Al Iniciar", "Al Finalizar"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F09-01",
+      "feature_id": 9,
+      "feature_name": "Deterministic Adaptive Sizing Matrix",
+      "title": "Tier 1 (Small / Hotfix) Classification Criteria",
+      "description": "Asserts harnesses/sizing.md defines Tier 1 bounds: 1-3 files, <=80 LOC, zero schema/contract changes.",
+      "target_file": "harnesses/sizing.md",
+      "authoritative_source": "PROJECT.md:31, explorer_3/analysis.md:225-232",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 1", "1 a 3 archivos", "80 líneas", "Fast-Track"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F09-02",
+      "feature_id": 9,
+      "feature_name": "Deterministic Adaptive Sizing Matrix",
+      "title": "Tier 2 (Medium / Standard SDD) Classification Criteria",
+      "description": "Asserts harnesses/sizing.md defines Tier 2 bounds: 4-10 files, 80-300 LOC, additive schema changes.",
+      "target_file": "harnesses/sizing.md",
+      "authoritative_source": "PROJECT.md:31, explorer_3/analysis.md:225-232",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 2", "4 a 10 archivos", "80 a 300 líneas", "Estándar"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F09-03",
+      "feature_id": 9,
+      "feature_name": "Deterministic Adaptive Sizing Matrix",
+      "title": "Tier 3 (Large / Epic) Classification Criteria",
+      "description": "Asserts harnesses/sizing.md defines Tier 3 bounds: >10 files, >300 LOC, cross-module/breaking changes.",
+      "target_file": "harnesses/sizing.md",
+      "authoritative_source": "PROJECT.md:31, explorer_3/analysis.md:225-232",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 3", "10 archivos", "300 líneas", "Epic"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F09-04",
+      "feature_id": 9,
+      "feature_name": "Deterministic Adaptive Sizing Matrix",
+      "title": "Quick Sizing Questionnaire (4 Deterministic Questions)",
+      "description": "Asserts harnesses/sizing.md includes the 4 YES/NO decision questions for deterministic tier classification.",
+      "target_file": "harnesses/sizing.md",
+      "authoritative_source": "PROJECT.md:31, explorer_3/analysis.md:298-309",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Matriz de Decisión Rápida", "más de 3 archivos", "esquemas de base de datos", "80 líneas"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F09-05",
+      "feature_id": 9,
+      "feature_name": "Deterministic Adaptive Sizing Matrix",
+      "title": "Dynamic Escalation Circuit Breaker in Sizing",
+      "description": "Asserts harnesses/sizing.md mandates immediate escalation to Tier 2 if Tier 1 thresholds are breached.",
+      "target_file": "harnesses/sizing.md",
+      "authoritative_source": "PROJECT.md:31, explorer_3/analysis.md:341-343",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Escalación Automática", "Circuit Breaker", "Tier 2"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F10-01",
+      "feature_id": 10,
+      "feature_name": "Fast-Track SDD Micro-Spec",
+      "title": "Micro-Spec Template Existence",
+      "description": "Asserts specs/_template_hotfix.md exists in the repository.",
+      "target_file": "specs/_template_hotfix.md",
+      "authoritative_source": "PROJECT.md:32, PROJECT.md:90",
+      "assertion_type": "file_exists",
+      "parameters": {}
+    },
+    {
+      "test_id": "TC-T1-F10-02",
+      "feature_id": 10,
+      "feature_name": "Fast-Track SDD Micro-Spec",
+      "title": "Micro-Spec Line Count Bound (<=25 Lines)",
+      "description": "Asserts specs/_template_hotfix.md contains at most 25 lines of markdown.",
+      "target_file": "specs/_template_hotfix.md",
+      "authoritative_source": "PROJECT.md:32, explorer_3/analysis.md:400-428",
+      "assertion_type": "line_count_le",
+      "parameters": {
+        "max_lines": 25
+      }
+    },
+    {
+      "test_id": "TC-T1-F10-03",
+      "feature_id": 10,
+      "feature_name": "Fast-Track SDD Micro-Spec",
+      "title": "Micro-Spec Required Sections Presence",
+      "description": "Asserts specs/_template_hotfix.md contains Problem, Affected Files (<=3), Solution, and Verification sections.",
+      "target_file": "specs/_template_hotfix.md",
+      "authoritative_source": "PROJECT.md:32, explorer_3/analysis.md:409-427",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Problema Detectado", "Archivos Afectados", "Solución Propuesta", "Verificación"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F10-04",
+      "feature_id": 10,
+      "feature_name": "Fast-Track SDD Micro-Spec",
+      "title": "Micro-Spec Exclusion of Heavyweight Sections",
+      "description": "Asserts specs/_template_hotfix.md omits database schema diagrams and REST endpoint tables.",
+      "target_file": "specs/_template_hotfix.md",
+      "authoritative_source": "PROJECT.md:32, explorer_3/analysis.md:254-255",
+      "assertion_type": "does_not_contain_patterns",
+      "parameters": {
+        "forbidden_patterns": ["Esquema de Datos", "Endpoints o Componentes", "Gherkin"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F10-05",
+      "feature_id": 10,
+      "feature_name": "Fast-Track SDD Micro-Spec",
+      "title": "Micro-Spec Fast Closing Checklist",
+      "description": "Asserts specs/_template_hotfix.md contains Section 5 quick closing checklist with <80 lines assertion.",
+      "target_file": "specs/_template_hotfix.md",
+      "authoritative_source": "PROJECT.md:32, explorer_3/analysis.md:423-427",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Checklist de Cierre Rápido", "Compila sin errores", "80 líneas netas"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F11-01",
+      "feature_id": 11,
+      "feature_name": "Epic & High-Assurance Spec Template",
+      "title": "Epic Spec Template Existence",
+      "description": "Asserts specs/_template_epic.md exists in repository.",
+      "target_file": "specs/_template_epic.md",
+      "authoritative_source": "PROJECT.md:33, PROJECT.md:92",
+      "assertion_type": "file_exists",
+      "parameters": {}
+    },
+    {
+      "test_id": "TC-T1-F11-02",
+      "feature_id": 11,
+      "feature_name": "Epic & High-Assurance Spec Template",
+      "title": "Epic Spec Milestone Slice Decomposition Table",
+      "description": "Asserts specs/_template_epic.md contains slice decomposition table (<300 LOC per slice).",
+      "target_file": "specs/_template_epic.md",
+      "authoritative_source": "PROJECT.md:33, explorer_3/analysis.md:515-523",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Desglose en Slices", "Milestones", "300 líneas"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F11-03",
+      "feature_id": 11,
+      "feature_name": "Epic & High-Assurance Spec Template",
+      "title": "Epic Spec Adversarial Review Gate Section",
+      "description": "Asserts specs/_template_epic.md requires Auditor/Challenger approval before implementation.",
+      "target_file": "specs/_template_epic.md",
+      "authoritative_source": "PROJECT.md:33, explorer_3/analysis.md:524-530",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Gate de Revisión Adversaria", "Auditor", "Challenger", "Firma"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F11-04",
+      "feature_id": 11,
+      "feature_name": "Epic & High-Assurance Spec Template",
+      "title": "Epic Spec Rollback Strategy Requirement",
+      "description": "Asserts specs/_template_epic.md mandates a rollback strategy section for catastrophic recovery.",
+      "target_file": "specs/_template_epic.md",
+      "authoritative_source": "PROJECT.md:33, explorer_3/analysis.md:531-533",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Estrategia de Rollback", "revertir"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F11-05",
+      "feature_id": 11,
+      "feature_name": "Epic & High-Assurance Spec Template",
+      "title": "Epic Global Closing Checklist",
+      "description": "Asserts specs/_template_epic.md contains comprehensive global closing checklist including Engram consolidation.",
+      "target_file": "specs/_template_epic.md",
+      "authoritative_source": "PROJECT.md:33, explorer_3/analysis.md:534-539",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Cierre Global del Epic", "Engram.md", "150 líneas"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F12-01",
+      "feature_id": 12,
+      "feature_name": "Agnostic SDD Workflow Routing",
+      "title": "Vendor-Agnostic Routing in phase.md",
+      "description": "Asserts harnesses/phase.md replaces commercial AI names with functional roles.",
+      "target_file": "harnesses/phase.md",
+      "authoritative_source": "PROJECT.md:34, explorer_3/analysis.md:347-393",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Orquestador", "Trabajador", "Revisor"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F12-02",
+      "feature_id": 12,
+      "feature_name": "Agnostic SDD Workflow Routing",
+      "title": "Tri-Branch Phase Routing Architecture",
+      "description": "Asserts harnesses/phase.md illustrates the 3 differentiated execution branches (Tier 1, 2, 3).",
+      "target_file": "harnesses/phase.md",
+      "authoritative_source": "PROJECT.md:34, explorer_3/analysis.md:355-386",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["TIER 1", "TIER 2", "TIER 3", "Fast-Track", "Standard", "Epic"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F12-03",
+      "feature_id": 12,
+      "feature_name": "Agnostic SDD Workflow Routing",
+      "title": "Phase 0 Discovery and Phase N Closing Integration",
+      "description": "Asserts harnesses/phase.md incorporates Phase 0 Discovery at entry and Phase N Closing at exit.",
+      "target_file": "harnesses/phase.md",
+      "authoritative_source": "PROJECT.md:34, explorer_3/analysis.md:356-385",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["DISCOVERY", "CLOSING"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F12-04",
+      "feature_id": 12,
+      "feature_name": "Agnostic SDD Workflow Routing",
+      "title": "Ponytail Minimalism Compatibility in ai-rules.md",
+      "description": "Asserts harnesses/ai-rules.md maintains ponytail minimalism rules alongside SDD structure.",
+      "target_file": "harnesses/ai-rules.md",
+      "authoritative_source": "PROJECT.md:34, AGENTS.md:7-22",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["ponytail", "YAGNI", "librería estándar"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F12-05",
+      "feature_id": 12,
+      "feature_name": "Agnostic SDD Workflow Routing",
+      "title": "Micro-Spec Exemption in ai-rules.md",
+      "description": "Asserts harnesses/ai-rules.md allows micro-specs for Tier 1 hotfixes without violating SDD precedence.",
+      "target_file": "harnesses/ai-rules.md",
+      "authoritative_source": "PROJECT.md:34, explorer_3/analysis.md:26-28",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["micro-spec", "Tier 1"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F13-01",
+      "feature_id": 13,
+      "feature_name": "Comprehensive Documentation & Guides",
+      "title": "Root README.md Overview and Architectural Summary",
+      "description": "Asserts README.md provides comprehensive introduction, architectural overview, and navigation.",
+      "target_file": "README.md",
+      "authoritative_source": "PROJECT.md:35, PROJECT.md:75",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["SDD", "Multi-Agent", "Arquitectura", "harnesses/"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F13-02",
+      "feature_id": 13,
+      "feature_name": "Comprehensive Documentation & Guides",
+      "title": "Greenfield Quickstart Guide in README.md",
+      "description": "Asserts README.md includes a step-by-step quickstart guide for greenfield projects.",
+      "target_file": "README.md",
+      "authoritative_source": "PROJECT.md:35, ORIGINAL_REQUEST.md:39",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Greenfield", "Inicio"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F13-03",
+      "feature_id": 13,
+      "feature_name": "Comprehensive Documentation & Guides",
+      "title": "Brownfield Production Repo Adoption Guide in README.md",
+      "description": "Asserts README.md includes an adoption guide for existing production codebases.",
+      "target_file": "README.md",
+      "authoritative_source": "PROJECT.md:35, ORIGINAL_REQUEST.md:33",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Brownfield", "producción", "discovery"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F13-04",
+      "feature_id": 13,
+      "feature_name": "Comprehensive Documentation & Guides",
+      "title": "Sizing Decision Tree Documentation in README.md",
+      "description": "Asserts README.md documents the adaptive sizing decision tree (Tier 1 vs 2 vs 3).",
+      "target_file": "README.md",
+      "authoritative_source": "PROJECT.md:35, PROJECT.md:62",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 1", "Tier 2", "Tier 3", "sizing"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F13-05",
+      "feature_id": 13,
+      "feature_name": "Comprehensive Documentation & Guides",
+      "title": "Model Tiering and Role Reference in Documentation",
+      "description": "Asserts README.md includes a summary of the 7 roles and model tiering matrix.",
+      "target_file": "README.md",
+      "authoritative_source": "PROJECT.md:35, ORIGINAL_REQUEST.md:29-30",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Roles", "Model Tier", "Orchestrator", "Worker"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F14-01",
+      "feature_id": 14,
+      "feature_name": "Practical End-to-End Examples",
+      "title": "Brownfield Hotfix Walkthrough Existence",
+      "description": "Asserts docs/examples/example_hotfix.md exists in repository.",
+      "target_file": "docs/examples/example_hotfix.md",
+      "authoritative_source": "PROJECT.md:36, PROJECT.md:106",
+      "assertion_type": "file_exists",
+      "parameters": {}
+    },
+    {
+      "test_id": "TC-T1-F14-02",
+      "feature_id": 14,
+      "feature_name": "Practical End-to-End Examples",
+      "title": "Greenfield Feature Walkthrough Existence",
+      "description": "Asserts docs/examples/example_greenfield.md exists in repository.",
+      "target_file": "docs/examples/example_greenfield.md",
+      "authoritative_source": "PROJECT.md:36, PROJECT.md:107",
+      "assertion_type": "file_exists",
+      "parameters": {}
+    },
+    {
+      "test_id": "TC-T1-F14-03",
+      "feature_id": 14,
+      "feature_name": "Practical End-to-End Examples",
+      "title": "Hotfix Example Demonstrates Fast-Track Lifecycle",
+      "description": "Asserts example_hotfix.md illustrates micro-spec, single-turn execution, and fast closing.",
+      "target_file": "docs/examples/example_hotfix.md",
+      "authoritative_source": "PROJECT.md:36, PROJECT.md:60",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 1", "_template_hotfix.md", "PVS", "Engram.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F14-04",
+      "feature_id": 14,
+      "feature_name": "Practical End-to-End Examples",
+      "title": "Greenfield Example Demonstrates Multi-Agent SDD",
+      "description": "Asserts example_greenfield.md illustrates Tier 2 standard SDD with multi-agent orchestration.",
+      "target_file": "docs/examples/example_greenfield.md",
+      "authoritative_source": "PROJECT.md:36, PROJECT.md:61",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["Tier 2", "Orchestrator", "Worker", "Reviewer", "_template.md"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F14-05",
+      "feature_id": 14,
+      "feature_name": "Practical End-to-End Examples",
+      "title": "Examples Demonstrate Standard Coordination Envelope",
+      "description": "Asserts examples showcase tripartite markdown coordination messages (<300 words).",
+      "target_file": "docs/examples/example_greenfield.md",
+      "authoritative_source": "PROJECT.md:36, spec_miner_2/analysis.md:38-43",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["**Context**:", "**Content**:", "**Action**:"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F15-01",
+      "feature_id": 15,
+      "feature_name": "Repository Packaging & Cross-Ref Integrity",
+      "title": "Zero Broken Relative Markdown Links",
+      "description": "Asserts all markdown files across the repository have valid, resolvable relative links.",
+      "target_file": "ALL_MARKDOWN",
+      "authoritative_source": "PROJECT.md:37, ORIGINAL_REQUEST.md:38",
+      "assertion_type": "link_validity",
+      "parameters": {
+        "scope": "repository_markdown"
+      }
+    },
+    {
+      "test_id": "TC-T1-F15-02",
+      "feature_id": 15,
+      "feature_name": "Repository Packaging & Cross-Ref Integrity",
+      "title": "Directory and File Naming Consistency",
+      "description": "Asserts all files follow kebab-case or underscore-prefixed template conventions.",
+      "target_file": "PROJECT_TREE",
+      "authoritative_source": "PROJECT.md:37, PROJECT.md:68-112",
+      "assertion_type": "file_naming_conventions",
+      "parameters": {
+        "allowed_pattern": "^[a-z0-9_.-]+$"
+      }
+    },
+    {
+      "test_id": "TC-T1-F15-03",
+      "feature_id": 15,
+      "feature_name": "Repository Packaging & Cross-Ref Integrity",
+      "title": "Valid Markdown Structure Syntax",
+      "description": "Asserts all markdown files contain properly closed code fences and valid heading hierarchies.",
+      "target_file": "ALL_MARKDOWN",
+      "authoritative_source": "PROJECT.md:37",
+      "assertion_type": "markdown_syntax",
+      "parameters": {}
+    },
+    {
+      "test_id": "TC-T1-F15-04",
+      "feature_id": 15,
+      "feature_name": "Repository Packaging & Cross-Ref Integrity",
+      "title": "Repository Clean Hygiene Check",
+      "description": "Asserts .gitignore exists and ignores node_modules, dist, temporary metadata, and scratch files.",
+      "target_file": ".gitignore",
+      "authoritative_source": "PROJECT.md:37",
+      "assertion_type": "contains_all_patterns",
+      "parameters": {
+        "patterns": ["node_modules", "dist"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F15-05",
+      "feature_id": 15,
+      "feature_name": "Repository Packaging & Cross-Ref Integrity",
+      "title": "Complete File Inventory Presence (24 Key Files)",
+      "description": "Asserts all 24 canonical files specified in PROJECT.md Code Layout exist in repository.",
+      "target_file": "PROJECT_TREE",
+      "authoritative_source": "PROJECT.md:37, PROJECT.md:68-112",
+      "assertion_type": "files_exist_list",
+      "parameters": {
+        "files": [
+          "AGENTS.md", "CLAUDE.md", "OPENCODE.md", "Engram.md", "README.md",
+          "harnesses/multi-agent.md", "harnesses/isolation.md", "harnesses/discovery.md",
+          "harnesses/closing.md", "harnesses/sizing.md", "harnesses/phase.md",
+          "harnesses/ai-rules.md", "harnesses/engram.md", "harnesses/review.md",
+          "harnesses/contract.md", "harnesses/structure.md", "harnesses/state.md",
+          "specs/_template_hotfix.md", "specs/_template.md", "specs/_template_epic.md",
+          "docs/adapters/antigravity.md", "docs/adapters/claude_code.md", "docs/adapters/opencode.md",
+          "docs/examples/example_hotfix.md", "docs/examples/example_greenfield.md"
+        ]
+      }
+    },
+    {
+      "test_id": "TC-T1-F16-01",
+      "feature_id": 16,
+      "feature_name": "100% E2E Test Suite & Adversarial Hardening",
+      "title": "Test Runner Standalone Executable Existence",
+      "description": "Asserts tests/e2e_test_runner.py exists and can be invoked standalone with Python 3.",
+      "target_file": "tests/e2e_test_runner.py",
+      "authoritative_source": "PROJECT.md:38, PROJECT.md:110",
+      "assertion_type": "file_exists",
+      "parameters": {}
+    },
+    {
+      "test_id": "TC-T1-F16-02",
+      "feature_id": 16,
+      "feature_name": "100% E2E Test Suite & Adversarial Hardening",
+      "title": "Standard Library Zero Dependency Compliance",
+      "description": "Asserts tests/e2e_test_runner.py imports only Python 3 standard library modules.",
+      "target_file": "tests/e2e_test_runner.py",
+      "authoritative_source": "PROJECT.md:38, TEST_INFRA.md:14-16",
+      "assertion_type": "standard_library_imports_only",
+      "parameters": {
+        "allowed_modules": ["os", "sys", "json", "re", "pathlib", "argparse", "dataclasses", "unittest", "typing", "datetime"]
+      }
+    },
+    {
+      "test_id": "TC-T1-F16-03",
+      "feature_id": 16,
+      "feature_name": "100% E2E Test Suite & Adversarial Hardening",
+      "title": "Tier 1 Feature Coverage Suite Completeness",
+      "description": "Asserts tier1_feature_coverage.json contains exactly 80 test cases across 16 features.",
+      "target_file": "tests/test_cases/tier1_feature_coverage.json",
+      "authoritative_source": "PROJECT.md:38, TEST_INFRA.md:17-19",
+      "assertion_type": "test_count_exact",
+      "parameters": {
+        "expected_count": 80,
+        "features_count": 16,
+        "min_per_feature": 5
+      }
+    },
+    {
+      "test_id": "TC-T1-F16-04",
+      "feature_id": 16,
+      "feature_name": "100% E2E Test Suite & Adversarial Hardening",
+      "title": "Tier 2 Boundary Cases Suite Completeness",
+      "description": "Asserts tier2_boundary_cases.json contains exactly 80 boundary test cases across 16 features.",
+      "target_file": "tests/test_cases/tier2_boundary_cases.json",
+      "authoritative_source": "PROJECT.md:38, TEST_INFRA.md:20-21",
+      "assertion_type": "test_count_exact",
+      "parameters": {
+        "expected_count": 80,
+        "features_count": 16,
+        "min_per_feature": 5
+      }
+    },
+    {
+      "test_id": "TC-T1-F16-05",
+      "feature_id": 16,
+      "feature_name": "100% E2E Test Suite & Adversarial Hardening",
+      "title": "Tier 3 & Tier 4 Suite Presence and Integrity",
+      "description": "Asserts tier3_combinations.json and tier4_real_world_scenarios.json exist with >=8 combinations and >=5 scenarios.",
+      "target_file": "tests/test_cases/tier4_real_world_scenarios.json",
+      "authoritative_source": "PROJECT.md:38, TEST_INFRA.md:22-25",
+      "assertion_type": "scenarios_presence",
+      "parameters": {
+        "min_tier3_suites": 8,
+        "min_tier4_scenarios": 5
+      }
+    }
+  ]
+}
