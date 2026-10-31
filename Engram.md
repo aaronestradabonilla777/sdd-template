@@ -70,6 +70,11 @@
   - **Motivo**: Prevenir bloqueos de renderizado en el hilo principal y garantizar degradación fluida en dispositivos móviles de gama baja.
   - **Alternativas Descartadas**: Inyección de scripts globales en `Base.astro` (descartado por acoplamiento y penalización de TBT).
 
+- **ADR-10: ODD proporcional**: Las specs identifican señales operativas para
+  flujos remotos/críticos; no se imponen SDKs ni se registran payloads sensibles.
+  ODD complementa SDD/RDD y deja la salud de backend con su operador.
+
+
 ## 4. Estado de Módulos
 | Módulo | Estado | Responsable | Notas de Implementación |
 |---|---|---|---|
@@ -83,6 +88,7 @@
 | Sistema i18n Bilingüe | COMPLETADO | Worker | Diccionario de cadenas tipadas en `src/i18n/ui.ts` |
 | Catálogo Fotográfico 16:9 | COMPLETADO | Design Team | 13 fotografías de estudio únicas en `public/images/` sin duplicación |
 | Formulario de Contacto Omnicanal | COMPLETADO | Worker | Integración de WhatsApp directo, redes oficiales y respaldo mailto |
-| Especificaciones SDD (Specs) | COMPLETADO | Systems Architect | Specs 001, 002 y 003 aprobadas y versionadas en `specs/` |
+| Especificaciones SDD (Specs) | COMPLETADO | Systems Architect | Specs 001 a 004 versionadas en `specs/` |
 | Harnesses Multi-Agente SDD | COMPLETADO | Teamwork Agents | M1 a M4 completados (Taxonomía, Discovery, Closing, Sizing, E2E) |
 | Pipeline de Verificación E2E | COMPLETADO | QA Specialist | Validador `tests/e2e_test_runner.py` con cobertura Tiers 1 a 4 |
+| ODD Harness | INTEGRADO | Systems Architect | Guía opcional de señales operativas, fallas y privacidad sin proveedor obligatorio |

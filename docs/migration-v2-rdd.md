@@ -21,6 +21,13 @@
    `disabled/unmanaged`.
 7. Prueba el flujo en un cambio desechable antes de proteger puertas de entrega.
 
+## Adopción opcional de ODD
+
+Después de adoptar RDD, incorpora [harnesses/odd.md](../harnesses/odd.md) para
+features remotas o críticas. Completa criterios operativos por flujo y deja
+“No aplica” para mocks. No añadas SDK, colector ni contrato de correlación sin
+decisión explícita.
+
 ## Gentle-AI
 
 Gentle-AI es una integración opcional y se configura por separado. Consulta su

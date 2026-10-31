@@ -95,6 +95,11 @@ When instantiating this prompt, supply the following dynamic variables at the pr
 3. Dispatch `Forensic Auditor` (Tier 1) for full test suite verification and repository integrity check.
 4. If Auditor issues a VETO, block merge and route remediation back to Worker.
 
+### ODD operational design
+For remote or critical workflows, ensure the approved spec identifies useful
+outcomes, latency, safe context, failure behavior, correlation only when agreed,
+and the operational owner. Keep ODD optional for local work and mocks.
+
 ### Step 6: Phase N Closing
 1. Upon Auditor sign-off, update persistent memory (`Engram.md`) adhering to the 150-line limit.
 2. Generate changelog entry and verify clean working tree.

@@ -38,6 +38,21 @@ Escenarios formales de comportamiento verificable (formato Given / When / Then):
 - **Concurrencia y estado:** Comportamiento ante doble click, peticiones simultáneas o desconexión de red.
 - **Fronteras del sistema:** Respuestas ante caídas de dependencias externas o timeouts.
 
+## 4.1 Observabilidad operativa (ODD, cuando aplique)
+
+Consulta [harnesses/odd.md](../harnesses/odd.md). Completa esta sección para
+integraciones remotas, operaciones críticas o necesidades de soporte. Si no
+aplica, indícalo brevemente.
+
+- **Pregunta operativa:** ¿Qué necesita diagnosticar la persona responsable?
+- **Resultado y errores:** ¿Qué resultados, estados y clases de error se distinguen?
+- **Latencia:** ¿Qué duración es relevante y quién aprobó el umbral?
+- **Contexto seguro:** ¿Qué operación, ruta o estado se puede registrar sin datos sensibles?
+- **Correlación:** ¿Hay un identificador acordado por el contrato? Si no, déjalo pendiente.
+- **Degradación:** ¿Qué ve la persona y qué recuperación es segura?
+- **Destino y responsable:** ¿Dónde se observa y quién actúa?
+- **Privacidad:** Confirma que no se registran secretos, datos personales/financieros ni payloads completos.
+
 ## 5. Ubicación y Arquitectura Técnica
 - **Frontend:** `src/features/[nombre]/` (si aplica)
   - `[Nombre].tsx` — vista de interfaz de usuario

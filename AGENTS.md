@@ -48,6 +48,13 @@ FASE 0: DISCOVERY  ──►  FASE 1: SPEC  ──►  FASE 2: DISEÑO  ──�
  (Auditoría previa)     (Qué y Criterios)    (Arquitectura)       (Código y Tests)   (Adversarial/Auditor) (Sign-Off & Engram)
 ```
 
+### ODD — observabilidad operativa proporcional
+
+ODD complementa SDD y RDD cuando la spec incluye una integración o una operación
+crítica. Consulta harnesses/odd.md; no impongas telemetría a mocks o cambios
+locales y no inventes proveedores, SLOs ni contratos de backend.
+
+
 ### Precedencia cuando Ponytail y SDD Coexisten
 La **estructura y las compuertas del SDD son inviolables**; el minimalismo de Ponytail aplica **dentro** de cada fase, no en contra de ella.
 - En arquitecturas sencillas o sitios web: no introduzcas capas complejas de Clean Architecture de backend si no hay backend.
@@ -128,4 +135,6 @@ Cualquier Worker en Tier 2 o Tier 3 tiene un límite estricto de **2 intentos de
 - Estándares de Código y Commits: `harnesses/ai-rules.md`
 - Criterios de Review y PRs: `harnesses/review.md`
 - Estándar Visual y Anti-Slop (Frontend): `harnesses/frontend-design.md`
+- Receipt-Driven Development (RDD): harnesses/rdd.md
+- Observabilidad operativa (ODD): harnesses/odd.md
 - Estructura de Proyecto: `harnesses/structure.md`

@@ -77,6 +77,9 @@ La **Etapa 1** formaliza la validación empírica irrefutable de que el código 
 - La suite completa de tests automatizados (unitarios, de integración, de tipos y E2E) debe pasar con código de salida 0.
 - **Veto de Test Fallido**: Si un solo test unitario o de integración falla, la tarea es **rechazada de inmediato**. Prohibido marcar entregas con fallos parciales o pruebas omitidas (`skip`/`ignore`) no autorizadas.
 
+Cuando una spec incluya criterios ODD, consulta [ODD](odd.md) y registra cómo se comprobó cada criterio
+mediante una prueba o un comportamiento observable. No se exige telemetría desplegada en producción salvo que la spec lo requiera expresamente.
+
 #### 2. Matriz de Evidencia PVS (PVS Evidence Matrix)
 El Worker o Revisor debe construir y adjuntar la tabla de verificación que correlaciona cada uno de los Criterios de Aceptación (AC) definidos en la spec con su comando de prueba y resultado textual verbatim:
 

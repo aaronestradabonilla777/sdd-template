@@ -25,6 +25,9 @@ allowed-tools: ["read", "write"]
 - [ ] Edge cases e invariantes.
 - [ ] Riesgos relevantes.
 
+- [ ] Si aplica, ¿la spec define señales operativas usando ODD?
+- [ ] ¿Evita registrar payloads sensibles o asumir contratos de correlación inexistentes?
+
 Crear desde `specs/_template.md`. El agente puede proponer la spec, pero no debe
 marcarla aprobada sin una decisión explícita del usuario o autoridad definida
 por el proyecto. El diseño se completa después de aprobar el comportamiento.

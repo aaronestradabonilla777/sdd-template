@@ -67,6 +67,11 @@ Para riesgo alto, la revisión puede aplicar cuatro lentes independientes:
 El runtime RDD determina cuántos lentes corresponden. El número de archivos o
 líneas no sustituye esa evaluación.
 
+La observabilidad que aparece en el lente Reliability de 4R se revisa con [ODD](odd.md) y contra
+los criterios ODD de la spec cuando aplican. ODD define qué necesita observarse;
+RDD evalúa la evidencia de que el candidato implementa esas decisiones. Ninguno
+requiere por sí mismo un proveedor ni convierte Markdown en recibo de aprobación.
+
 ## Ausencia de autoridad nativa
 
 Si Gentle-AI u otra autoridad compatible no está instalada o RDD fue

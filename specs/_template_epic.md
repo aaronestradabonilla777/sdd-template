@@ -54,6 +54,14 @@ Pasos concretos e idempotentes para revertir el cambio sin pérdida de datos en 
 3. **Plan de Contingencia de Datos:** Scripts de migración inversa (`down migrations`) sin pérdida ni truncamiento de datos existentes.
 4. **Validación Post-Rollback:** Comandos para confirmar que el repositorio y el sistema regresan al baseline operativo previo.
 
+## 5.1 Operabilidad y observabilidad (ODD)
+
+Consulta [harnesses/odd.md](../harnesses/odd.md). Para cada slice remoto o
+crítico define resultado/error, latencia relevante, degradación, correlación
+solo si el contrato la soporta, responsable y destino de diagnóstico, y límites
+de privacidad. Permite “No aplica” en slices sin comportamiento operativo que
+observar. No impongas proveedor ni SDK.
+
 ## 6. Cierre Global del Epic
 Checklist integral de cierre según `harnesses/closing.md`:
 - [ ] Todos los Milestones (M1..Mn) completados con PVS firmado en cada sub-spec.

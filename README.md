@@ -350,6 +350,8 @@ Todos los componentes del sistema cuentan con especificación y documentación f
 - [harnesses/discovery.md](harnesses/discovery.md) — Protocolo de auditoría previa en 6 pilares (Fase 0: Discovery).
 - [harnesses/closing.md](harnesses/closing.md) — Protocolo de cierre post-implementación, sign-off PVS y changelog (Fase N).
 - [harnesses/sizing.md](harnesses/sizing.md) — Matriz determinista de dimensionamiento y enrutamiento adaptativo.
+- [harnesses/odd.md](harnesses/odd.md) — Señales operativas, diagnóstico y privacidad cuando ODD aplica.
+- [harnesses/rdd.md](harnesses/rdd.md) — Recibos nativos y revisión del candidato exacto.
 - [harnesses/phase.md](harnesses/phase.md) — Enrutamiento agnóstico de fases SDD y compuertas de transición.
 - [harnesses/ai-rules.md](harnesses/ai-rules.md) — Reglas operativas para agentes y excepciones micro-spec.
 - [harnesses/engram.md](harnesses/engram.md) — Reglas de gestión de memoria técnica y protocolo de poda.
@@ -359,6 +361,7 @@ Todos los componentes del sistema cuentan con especificación y documentación f
 - [harnesses/state.md](harnesses/state.md) — Seguimiento de estado de tareas y ciclo de vida.
 
 ### Plantillas de Especificación (`specs/`)
+- [specs/004-odd-harness.md](specs/004-odd-harness.md) — Spec del arnés ODD.
 - [specs/_template_hotfix.md](specs/_template_hotfix.md) — Micro-spec ultraligera para cambios pequeños o hotfixes (≤25 líneas).
 - [specs/_template.md](specs/_template.md) — Plantilla estándar para features medianas (Tier 2).
 - [specs/_template_epic.md](specs/_template_epic.md) — Plantilla épica con desglose en slices y gate adversarial (Tier 3).

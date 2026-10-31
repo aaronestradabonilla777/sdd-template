@@ -44,3 +44,12 @@ Próximo paso:
 - Verificación: `pnpm build` compiló las rutas `/` y `/es/` después de los cambios.
 - Vista previa local activa en `http://127.0.0.1:4321/es/` (inglés: `/`); ambas rutas respondieron HTTP 200.
 - No publicado.
+
+## Sesión actual — ODD Harness (2026-10-30)
+
+- Spec 004 aprobada por el usuario; integración documental en curso.
+- El clon se actualizó por fast-forward desde origin/main antes de aplicar cambios.
+- Revisión independiente: AC-03 resuelto; sin findings abiertos.
+Verificación: enlaces locales, Prettier en archivos nuevos y git diff --check correctos; no había package.json para ejecutar build/tests.
+Alcance: documentación ODD, sin instrumentación ni dependencias.
+- Alcance: harness ODD y sus referencias; sin instrumentación ni dependencias.

@@ -6,6 +6,13 @@ Opera bajo la premisa rectora de que el proceso gobierna el ciclo de vida: **nin
 
 ---
 
+## ODD como disciplina transversal
+
+Cuando una spec incluya una integración o una operación crítica, aplica
+[harnesses/odd.md](odd.md) durante Discovery, diseño, implementación y
+verificación. ODD no agrega fases ni obligaciones para mocks o trabajo local.
+La spec registra señales solo si existe una pregunta operativa que responder.
+
 ## 1. Arquitectura de Enrutamiento Tri-Rama
 
 El flujo de trabajo se descompone en tres vías diferenciadas según el tamaño e impacto del cambio, acotadas en sus extremos por la **Fase 0: DISCOVERY** y la **Fase N: CLOSING**:

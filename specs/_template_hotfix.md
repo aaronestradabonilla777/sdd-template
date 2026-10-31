@@ -17,6 +17,7 @@
 - Comando de prueba / compilación: `[ej. pnpm test tests/... o pnpm build]`
 - Verificación manual / visual: `[ej. Inspección visual en navegador]`
 
+- ODD: No aplica, o indica la señal observable de error/latencia; nunca registres datos sensibles.
 ## 5. Checklist de Cierre Rápido
 - [ ] Compila sin errores (`pnpm build` o equivalente).
 - [ ] Test o verificación visual exitosa.

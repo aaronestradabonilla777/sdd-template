@@ -16,6 +16,8 @@
 | 150-300 | OK, pide review            |
 | > 300   | Divide en PRs más pequeños |
 
+- [ ] Si la spec marca ODD como aplicable, ¿la solución cubre sus señales (ver [ODD](odd.md)) y límites de privacidad?
+
 ## Commit
 ```
 tipo: descripción en infinitivo, minúsculas, sin punto

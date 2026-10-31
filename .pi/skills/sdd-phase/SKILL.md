@@ -24,5 +24,7 @@ ANÁLISIS → SPEC → DISEÑO → IMPLEMENTACIÓN → RDD → VERIFICACIÓN →
 6. Durante validación read-only, no escribir en el candidato.
 7. Antes de entregar, validar permisos del repo y el recibo aplicable.
 
+8. Si la spec contiene operaciones remotas/críticas, aplica ODD de forma proporcional según harnesses/odd.md; no agregues una fase ni proveedor obligatorio.
+
 Consultar `harnesses/phase.md`, `harnesses/rdd.md` y
 `harnesses/isolation.md` para los contratos completos.

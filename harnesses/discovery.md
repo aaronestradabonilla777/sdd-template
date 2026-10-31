@@ -148,6 +148,13 @@ La ejecución completa de Discovery debe auditar sistemáticamente los seis pila
 
 ---
 
+### Contexto operativo y observabilidad
+
+Durante Discovery consulta [ODD](odd.md) y registra señales, alertas y límites operativos existentes
+para las superficies afectadas. Identifica quién opera cada dependencia y qué
+puede observar el cliente. No infieras SLOs, propagación de trazas ni contratos
+de salud que no estén documentados.
+
 ## 4. Modos de Ejecución Adaptativos según Sizing
 
 El rigor y alcance de Discovery se adaptan determinísticamente al tamaño del cambio según `harnesses/sizing.md`:
